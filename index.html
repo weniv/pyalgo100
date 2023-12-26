@@ -273,7 +273,7 @@
                                 passing = "&lt;span class='result-pass'&gt; 통과 &lt;&#47;span&gt;"
                                 fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
                                 result_save_localstorage = []
-                                for i in range(3):
+                                for i in range(5):
                                     resultString += f"&lt;p class='que-result-{i} checkPass'&gt;test{i+1} : {passing if result[i] == answer[i] else fail}&lt;span class='result-compare'&gt;({result[i]} == {answer[i]})&lt;&#47;span&gt;&lt;&#47;p&gt;"
                                     result_save_localstorage.append(result[i] == answer[i])
                                 js.document.querySelector('#result_desc').innerHTML = resultString
