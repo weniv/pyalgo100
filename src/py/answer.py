@@ -47,3 +47,8 @@ def solution(data):
 # 8
 def solution(data):
     return list(sorted(zip(data, data[1:]), key=lambda x: x[1] - x[0])[0])
+
+
+# 9
+def solution(data):
+    return sorted(data, key=lambda x: x["수"], reverse=True)[0]["이름"]
