@@ -27,3 +27,23 @@ def solution(data):
         number = int(s.split(" ")[1].replace("개", ""))
         result += number * (i + 1)
     return result
+
+
+# 5
+def solution(data):
+    return "".join(map(str, data)).count("1")
+
+
+# 6
+def solution(data):
+    return sum(map(int, filter(str.isdigit, data)))
+
+
+# 7
+def solution(data):
+    return list(map(lambda x: x[0], sorted(data, key=lambda x: x[1])))
+
+
+# 8
+def solution(data):
+    return list(sorted(zip(data, data[1:]), key=lambda x: x[1] - x[0])[0])
