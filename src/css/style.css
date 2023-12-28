@@ -244,7 +244,7 @@ header .menu-list {
     right: 10px;
     width: 240px;
     height: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     border-radius: 6px;
     padding: 8px 0;
 }
