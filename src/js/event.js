@@ -74,11 +74,11 @@ $btnDownload.addEventListener("click", (e) => {
     const res = fetchQuestionInfo();
     res.then((response) => {
       const questionInfo = JSON.parse(response.split("=")[1].slice(1));
-      for (let i = 1; i < 21; i++) {
+      for (let i = 1; i < questionInfo.length; i++) {
         let localStorageValue = window.localStorage.getItem(i);
         let passCheck = window.localStorage.getItem(`${i}_check`);
         if (!!localStorageValue) {
-          localStorageValue = "```javascript\n" + localStorageValue + "\n```";
+          localStorageValue = "```python\n" + localStorageValue + "\n```";
           if (!!passCheck) {
             localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]["lv"]}\n* 문제 종류 : ${questionInfo[i]["kinds"]}\n* 문제 링크 : https://100.pyalgo.co.kr/?page=${i}\n* 통과 여부 : Y\n\n${localStorageValue}\n\n`;
           } else {
