@@ -292,6 +292,21 @@ header .menu-list {
     display: inline-block;
     line-height: 1.4;
 }
+.btn-download::before {
+  content:'';
+  width:2rem;
+  height:2rem;
+  margin-right:0.8rem;
+  background:url('../img/icon/icon-download.svg') no-repeat 50% 50%/contain;
+}
+
+.menu-item .btn-exec::before {
+  content:'';
+  width:2rem;
+  height:2rem;
+  margin-right:0.8rem;
+  background:url('../img/icon/icon-link.svg') no-repeat 50% 50%/contain;
+}
 
 @media (max-width: 900px) {
     .cta-btn {
@@ -329,9 +344,7 @@ header .menu-list {
     pointer-events: none;
 }
 
-/* .menu-nav.is-active .btn-exec {
-    background: none;
-} */
+
 
 @media (max-width: 446px) {
     .btn-exec {
