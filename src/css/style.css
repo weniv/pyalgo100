@@ -242,15 +242,22 @@ header .menu-list {
     position: absolute;
     top: 65px;
     right: 10px;
-    width: 200px;
+    width: 240px;
     height: auto;
     overflow-y: hidden;
     border-radius: 6px;
+    padding: 8px 0;
+}
+.menu-list hr {
+    border-bottom: 1px solid var(--ColorBg);
+    margin:8px 0;
 }
 
 .menu-list .menu-title {
-    border-top: 1px solid var(--ColorBg);
-    padding: 8px 0 8px 10px;
+    font-size:1.2rem;
+    color: #ffffd9;
+    padding: 4px 0 4px 16px;
+    margin-bottom:4px;
 }
 
 .hamburger-btn {
@@ -375,12 +382,13 @@ header .menu-nav.is-active {
 }
 
 .menu-list .menu-item {
-    font-size: 0.9em;
+  color:var(--ColorWhite);
+    font-size: 1.4rem;
+    line-height:2rem;
     width: 100%;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
-    margin: 0 0 8px 0;
+    padding: 10px 20px;
 }
 
 .menu-list .menu-item:hover {
@@ -394,13 +402,9 @@ header .menu-nav.is-active {
 .menu-list .menu-item a,
 .menu-list .menu-item button {
     display: flex;
-    /* justify-content: flex-center; */
     width: 100%;
     color: rgba(255, 255, 255, 0.8);
-    /* margin: 5px 10px; */
-    /* font-weight: bold; */
     text-align: center;
-    padding: 12px;
 }
 
 .menu-list .menu-item a {
