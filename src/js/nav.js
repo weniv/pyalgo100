@@ -6,7 +6,9 @@ const $codeMirror = document.querySelector(".CodeMirror");
 const $btnMenu = $container.querySelector(".hamburger-btn");
 const $icon = $btnMenu.querySelector("img");
 const $menuContainer = $container.querySelector(".menu-list");
+let isActive = $btnMenu.classList.contains("is-active");
 let isMobile = null;
+
 
 const handleCloseQuestions = () => {
     $container.classList.remove("menu-on");
@@ -16,7 +18,7 @@ const handleCloseQuestions = () => {
 };
 
 const handleOpenQuestions = () => {
-    if ($menuContainer.classList.contains("is-active")) {
+    if ($menuContainer.classList.contains("active")) {
         handleCloseMenu();
     }
 
@@ -35,8 +37,6 @@ const handleToggleQuestions = () => {
 };
 
 const handleToggleMenu = () => {
-    let isActive = $btnMenu.classList.contains("is-active");
-
     $btnMenu.classList.toggle("is-active");
     $icon.src = isActive ? "src/img/hamburger-btn.webp" : "src/img/close.webp";
     $icon.alt = isActive ? "메뉴 열기" : "메뉴 닫기";
@@ -44,20 +44,23 @@ const handleToggleMenu = () => {
     if (isActive) {
         $icon.classList.remove("close");
         $menuContainer.classList.remove("active");
+        isActive = false;
     } else {
         $icon.classList.add("close");
         $menuContainer.classList.add("active");
+        isActive = true;
     }
 
-    // if ($menuContainer.classList.contains("is-active")) {
-    //     handleCloseQuestions();
-    // }
+    if ($menuContainer.classList.contains("active") && isMobile) {
+        handleCloseQuestions();
+    }
 };
 
 const handleCloseMenu = () => {
     $menuContainer.classList.remove("active");
     $icon.classList.remove("close");
     $icon.src = "src/img/hamburger-btn.webp";
+    isActive = false;
 };
 
 const checkMobile = () => {
@@ -92,9 +95,9 @@ const handleCloseMobileQuestions = (e) => {
 };
 
 const handleClickOutside = (e) => {
-    if ($main.contains(e.target)) {
-        handleCloseMenu();
-    }
+  if (!$menuContainer.contains(e.target)) {
+    handleCloseMenu();
+}
 };
 
 checkMobile();
