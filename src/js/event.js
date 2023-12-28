@@ -99,20 +99,3 @@ $btnDownload.addEventListener("click", (e) => {
       }
     });
   });
-});
-
-$languageSelector.addEventListener("change", (e) => {
-  lang = e.target.value;
-
-  if (lang === "javascript") {
-    window.location = "https://jsalgo.co.kr/";
-  } else {
-    return;
-  }
-});
-
-window.onload = function () {
-  const options = $languageSelector.querySelectorAll("option");
-  lang = "python";
-  options[0].selected = true;
-};
