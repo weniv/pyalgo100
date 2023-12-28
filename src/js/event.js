@@ -1,7 +1,7 @@
 const $btnQue = document.querySelectorAll(".btn-que");
 const $btnRun = document.querySelector("#btn-run");
 const $resultInfo = document.querySelector("#result_info");
-const $btnDownload = document.querySelectorAll(".btn-download");
+const $btnDownload = document.querySelector(".btn-download");
 const $languageSelector = document.querySelector(".lang-selector");
 let lang;
 
@@ -69,8 +69,7 @@ const fetchQuestionInfo = async () => {
   }
 };
 
-$btnDownload.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+$btnDownload.addEventListener("click", (e) => {
     let totalData = "";
     const res = fetchQuestionInfo();
     res.then((response) => {
@@ -81,9 +80,9 @@ $btnDownload.forEach((btn) => {
         if (!!localStorageValue) {
           localStorageValue = "```javascript\n" + localStorageValue + "\n```";
           if (!!passCheck) {
-            localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]["lv"]}\n* 문제 종류 : ${questionInfo[i]["kinds"]}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : Y\n\n${localStorageValue}\n\n`;
+            localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]["lv"]}\n* 문제 종류 : ${questionInfo[i]["kinds"]}\n* 문제 링크 : https://100.pyalgo.co.kr/?page=${i}\n* 통과 여부 : Y\n\n${localStorageValue}\n\n`;
           } else {
-            localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]["lv"]}\n* 문제 종류 : ${questionInfo[i]["kinds"]}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : N\n\n${localStorageValue}\n\n`;
+            localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]["lv"]}\n* 문제 종류 : ${questionInfo[i]["kinds"]}\n* 문제 링크 : https://100.pyalgo.co.kr/?page=${i}\n* 통과 여부 : N\n\n${localStorageValue}\n\n`;
           }
           totalData += localStorageValue;
         }
