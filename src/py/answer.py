@@ -52,3 +52,18 @@ def solution(data):
 # 9
 def solution(data):
     return sorted(data, key=lambda x: x["수"], reverse=True)[0]["이름"]
+
+
+# 10
+def solution(data):
+    return sorted(map(lambda x: x[0], filter(lambda x: sum(x[1:]) > 350, data)))
+
+
+# 11
+def solution(data):
+    return len(list(filter(lambda x: sum(x) > 240, data)))
+
+
+# 12
+def solution(data):
+    return sorted(data[0], key=lambda x: data[1].get(x.split(" ")[1]))
