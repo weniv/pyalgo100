@@ -75,14 +75,6 @@ def solution(data):
     return sorted(books, key=lambda book: (publish_years[book], book))
 
 # 14
-def solution(book_locations):
-    # 위치 코드를 사전순으로 정렬합니다.
-    sorted_locations = sorted(book_locations.keys())
-
-    # 정렬된 위치 코드에 해당하는 책 제목을 순서대로 리스트에 추가합니다.
-    sorted_books = [book_locations[location] for location in sorted_locations]
-
-    return sorted_books
-
-
-
+def solution(data):
+    sorted_data = sorted(data.keys())
+    return [data[i] for i in sorted_data]
