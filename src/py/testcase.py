@@ -206,5 +206,29 @@ testcase_and_result = [
             ["제주시 F동 한라산길 21", "제주시 E동 한라산길 11", "제주시 D동 한라산길 101"],
             ["제주시 AE동 한라산길 61", "제주시 FE동 백록담길 63", "제주시 BE동 사라봉길 31"]
         ]
+    },
+    {
+        "que_number": 13,
+        "lv": 0,
+        "kinds": "정렬",
+        "testcase": [
+            [
+                ["Great Expectations", "Brave New World", "The Catcher in the Rye"],
+                {"Great Expectations": 1861, "Brave New World": 1932, "The Catcher in the Rye": 1951}
+            ],
+            [
+                ["To Kill a Mockingbird", "1984", "Animal Farm"],
+                {"To Kill a Mockingbird": 1960, "1984": 1949, "Animal Farm": 1945}
+            ],
+            [
+                ["The Great Gatsby", "Moby Dick", "Pride and Prejudice"],
+                {"The Great Gatsby": 1925, "Moby Dick": 1851, "Pride and Prejudice": 1813}
+            ]
+        ],
+        "result": [
+            ["Great Expectations", "Brave New World", "The Catcher in the Rye"],
+            ["Animal Farm", "1984", "To Kill a Mockingbird"],
+            ["Pride and Prejudice", "Moby Dick", "The Great Gatsby"]
+        ]
     }
 ]

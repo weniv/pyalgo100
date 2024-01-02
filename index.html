@@ -157,6 +157,7 @@
           <li><a href="#" id="q10" class="btn-que">Q10. 게임 벨런스 조절</a></li>
           <li><a href="#" id="q11" class="btn-que">Q11. 평균 점수 카운팅</a></li>
           <li><a href="#" id="q12" class="btn-que">Q12. 우편 번호 정렬</a></li>
+          <li><a href="#" id="q13" class="btn-que">Q13. 도서관 책 정렬</a></li>
         </ol>
       </nav>
       <main>
@@ -275,7 +276,7 @@
                     passing = "&lt;span class='result-pass'&gt; 통과 &lt;&#47;span&gt;"
                     fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
                     result_save_localstorage = []
-                    for i in range(3):
+                    for i, j in enumerate(answer):
                         resultString += f"&lt;p class='que-result-{i} checkPass'&gt;test{i+1} : {passing if result[i] == answer[i] else fail}&lt;span class='result-compare'&gt;({result[i]} == {answer[i]})&lt;&#47;span&gt;&lt;&#47;p&gt;"
                         result_save_localstorage.append(result[i] == answer[i])
                     js.document.querySelector('#result_desc').innerHTML = resultString

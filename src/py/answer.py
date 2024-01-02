@@ -67,3 +67,10 @@ def solution(data):
 # 12
 def solution(data):
     return sorted(data[0], key=lambda x: data[1].get(x.split(" ")[1]))
+
+
+# 13
+def solution(data):
+    books, publish_years = data
+    return sorted(books, key=lambda book: (publish_years[book], book))
+
