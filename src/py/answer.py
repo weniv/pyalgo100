@@ -78,3 +78,47 @@ def solution(data):
 def solution(data):
     sorted_data = sorted(data.keys())
     return [data[i] for i in sorted_data]
+
+# 15
+def solution(times):
+    def convert_time(time):
+        hh, mm, ampm = time.split(' ')[0].split(':') + time.split(' ')[1:]
+
+        # 12시간제를 24시간제로 변환합니다. 12:00 AM은 00:00으로, 12:00 PM은 12:00으로 처리합니다.
+        if ampm == 'PM' and hh != '12':
+            hh = str(int(hh) + 12)
+        elif ampm == 'AM' and hh == '12':
+            hh = '00'
+
+        return hh + ':' + mm + ' ' + ampm
+
+    # 변환된 시간을 오름차순으로 정렬합니다.
+    return sorted(times, key=convert_time)
+
+# 16
+
+
+def solution(dates):
+    def convert_date(date):
+        # 날짜 구분자에 따라 날짜를 분리합니다.
+        if '-' in date:
+            day, month, year = date.split('-')
+        elif '/' in date:
+            month, day, year = date.split('/')
+        else:  # '.' 구분자
+            year, month, day = date.split('.')
+
+        return year, month, day
+    # 날짜들을 연/월/일 형식으로 변환합니다.
+    converted_dates = [convert_date(date) for date in dates]
+
+    # 변환된 날짜들을 오름차순으로 정렬합니다.
+    sorted_dates = sorted(converted_dates)
+
+    # 정렬된 날짜들을 '연/월/일' 형식으로 다시 변환합니다.
+    return ["/".join(date) for date in sorted_dates]
+
+# 테스트
+test_dates = ['20-01-2024', '12/15/2023', '2022.05.30']
+print(solution(test_dates))
+
