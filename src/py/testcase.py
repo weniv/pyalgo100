@@ -230,5 +230,32 @@ testcase_and_result = [
             ["Animal Farm", "1984", "To Kill a Mockingbird"],
             ["Pride and Prejudice", "Moby Dick", "The Great Gatsby"]
         ]
+    },
+    {
+        "que_number": 14,
+        "lv": 0,
+        "kinds": "정렬",
+        "testcase": [
+            {
+                "BX32": "1984", 
+                "AX21": "Moby Dick", 
+                "CX14": "To Kill a Mockingbird"
+            },
+            {
+                "ZA10": "Pride and Prejudice", 
+                "YA24": "The Great Gatsby", 
+                "XA33": "The Catcher in the Rye"
+            },
+            {
+                "LD44": "Brave New World", 
+                "KC55": "Great Expectations", 
+                "MD66": "Animal Farm"
+            }
+        ],
+        "result": [
+            ["Moby Dick", "1984", "To Kill a Mockingbird"],
+            ["The Catcher in the Rye", "The Great Gatsby", "Pride and Prejudice"],
+            ["Great Expectations", "Brave New World", "Animal Farm"]
+        ]
     }
 ]
