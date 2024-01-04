@@ -174,8 +174,8 @@ def solution(temperature_data):
     # 온도 데이터를 (온도, 날짜) 형식의 튜플 리스트로 변환합니다.
     temp_list = [(temp, date) for date, temp in temperature_data.items()]
 
-    # 온도를 기준으로 내림차순 정렬합니다.
-    temp_list.sort(reverse=True)
+    # 온도를 기준으로 내림차순 정렬하되, 온도가 같은 경우 날짜를 기준으로 오름차순 정렬합니다.
+    temp_list.sort(key=lambda x: (-x[0], x[1]))
 
     # 최고 온도 상위 3일을 선택합니다.
     top_three = temp_list[:3]
