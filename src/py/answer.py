@@ -119,3 +119,79 @@ def solution(dates):
 
     # 정렬된 날짜들을 '연/월/일' 형식으로 다시 변환합니다.
     return ["/".join(date) for date in sorted_dates]
+
+
+# 17
+# 모듈 사용
+from datetime import datetime
+
+
+def solution(schedules):
+    # 모든 일정을 하나의 리스트로 변환하면서 요일 정보를 함께 저장합니다.
+    all_schedules = []
+    for day, dates in schedules.items():
+        for date in dates:
+            all_schedules.append((date, day))
+
+    # 날짜를 기준으로 내림차순 정렬합니다.
+    all_schedules.sort(key=lambda x: x[0], reverse=True)
+
+    # 최근 3개의 일정을 선택합니다.
+    recent_three = all_schedules[:3]
+
+    # 선택된 일정을 'YY-MM-DD 요일' 형식으로 변환합니다.
+    return [
+        datetime.strptime(date, "%Y-%m-%d").strftime("%y-%m-%d") + " " + day
+        for date, day in recent_three
+    ]
+
+
+# test
+from datetime import datetime
+
+datetime.strptime("2024-01-01", "%Y-%m-%d").strftime("%y-%m-%d")
+
+
+# 모듈 사용하지 않음
+def solution(schedules):
+    # 모든 일정을 하나의 리스트로 변환하면서 요일 정보를 함께 저장합니다.
+    all_schedules = []
+    for day, dates in schedules.items():
+        for date in dates:
+            # 날짜를 'YYYY-MM-DD'에서 'YY-MM-DD 요일' 형식으로 변환합니다.
+            converted_date = date[2:] + " " + day
+            all_schedules.append(converted_date)
+
+    # 변환된 일정을 내림차순으로 정렬합니다.
+    all_schedules.sort(reverse=True)
+
+    # 최근 3개의 일정을 선택합니다.
+    return all_schedules[:3]
+
+
+# 18
+def solution(temperature_data):
+    # 온도 데이터를 (온도, 날짜) 형식의 튜플 리스트로 변환합니다.
+    temp_list = [(temp, date) for date, temp in temperature_data.items()]
+
+    # 온도를 기준으로 내림차순 정렬합니다.
+    temp_list.sort(reverse=True)
+
+    # 최고 온도 상위 3일을 선택합니다.
+    top_three = temp_list[:3]
+
+    # 선택된 날짜를 'YY-MM-DD: 온도' 형식으로 변환합니다.
+    return [date[2:] + ": " + str(temp) for temp, date in top_three]
+
+
+# 테스트
+test_data = {
+    "2024-01-01": 15,
+    "2024-01-02": 17,
+    "2024-01-03": 16,
+    "2024-01-04": 20,
+    "2024-01-05": 19,
+    "2024-01-06": 21,
+    "2024-01-07": 18,
+}
+print(solution(test_data))

@@ -161,6 +161,8 @@
           <li><a href="#" id="q14" class="btn-que">Q14. 도서관 책 코드별 정렬</a></li>
           <li><a href="#" id="q15" class="btn-que">Q15. 위니브 회의 시간표 정렬</a></li>
           <li><a href="#" id="q16" class="btn-que">Q16. 뮤라의 휴가 입력</a></li>
+          <li><a href="#" id="q17" class="btn-que">Q17. 라이켓 CEO의 최근일정 3개</a></li>
+          <li><a href="#" id="q18" class="btn-que">Q18. 주간 최고 온도 기록 분석</a></li>
         </ol>
       </nav>
       <main>
@@ -258,6 +260,10 @@
 
             def render(*ags):
                 PAGE_NAME = js.document.querySelector('.active').id[1:]
+                try:
+                    TEST_CASE_LEN = len(testcase_and_result[int(PAGE_NAME)]['result'])
+                except:
+                    TEST_CASE_LEN = 3
                 for i in range(3):
                     js.document.querySelector(f'#testcase{i+1}').value = str(testcase_and_result[int(PAGE_NAME)]['testcase'][i])
             render()
@@ -279,7 +285,7 @@
                     passing = "&lt;span class='result-pass'&gt; 통과 &lt;&#47;span&gt;"
                     fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
                     result_save_localstorage = []
-                    for i, j in enumerate(answer):
+                    for i, _ in enumerate(answer):
                         resultString += f"&lt;p class='que-result-{i} checkPass'&gt;test{i+1} : {passing if result[i] == answer[i] else fail}&lt;span class='result-compare'&gt;({result[i]} == {answer[i]})&lt;&#47;span&gt;&lt;&#47;p&gt;"
                         result_save_localstorage.append(result[i] == answer[i])
                     js.document.querySelector('#result_desc').innerHTML = resultString
