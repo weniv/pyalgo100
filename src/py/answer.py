@@ -229,7 +229,9 @@ print(solution(test_data))
 # 20
 def solution(class_instance_pairs):
     # 각 클래스와 인스턴스 쌍에 대해 isinstance 함수를 사용하여 타입 확인을 수행합니다.
-    return [isinstance(instance, class_) for class_, instance in class_instance_pairs]
+    return all(
+        [type(instance).__name__ == class_ for class_, instance in class_instance_pairs]
+    )
 
 
 # 테스트

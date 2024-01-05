@@ -378,18 +378,14 @@ testcase_and_result = [
         "lv": 0,
         "kinds": "타입 확인",
         "testcase": [
-            [(list, [1, 2, 3]), (int, 4), (str, "hello")],
-            [(str, 100), (dict, {"a": 1}), (tuple, (1, 2, 3))],
-            [(float, 3.14), (list, "not a list"), (dict, {"key": "value"})],
-            [(bool, True), (int, False), (str, "test string")],
-            [(tuple, (1, 2)), (list, [1, "a", 3.14]), (dict, {})]
+            [('list', [1, 2, 3]), ('int', 4), ('str', "hello")],
+            [('str', 100), ('dict', {"a": 1}), ('tuple', (1, 2, 3))],
+            [('float', 3.14), ('list', "not a list"), ('dict', {"key": "value"})]
         ],
         "result": [
-            [True, True, True],
-            [False, True, True],
-            [True, False, True],
-            [True, False, True],
-            [True, True, True]
+            True,
+            False,
+            False
         ]
     }
 ]
