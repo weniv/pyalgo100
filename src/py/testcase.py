@@ -353,5 +353,43 @@ testcase_and_result = [
             ["24-04-05: 25", "24-04-02: 24", "24-04-06: 24"],
             ["24-05-06: 24", "24-05-04: 23", "24-05-07: 23"]
         ]
+    },
+    {
+        "que_number": 19,
+        "lv": 0,
+        "kinds": "타입 확인",
+        "testcase": [
+            [123, 4.56, "hello", [1, 2, 3], (4, 5), {"a": 1, "b": 2}],
+            [True, 0, 3.14, "world", [3, 4, 5], (6, 7, 8), {"x": 3, "y": 4}],
+            [[1, 2], ["a", "b", "c"], (12, 34), 567, 8.91, "Python"],
+            ["text", 1001, 2.718, (9, 10, 11), [6, 7, 8], {"key": "value"}],
+            [False, 2024, (13, 14, 15), "data", 5.67, [9, 10]]
+        ],
+        "result": [
+            ["int", "float", "str", "list", "tuple", "dict"],
+            ["bool", "int", "float", "str", "list", "tuple", "dict"],
+            ["list", "list", "tuple", "int", "float", "str"],
+            ["str", "int", "float", "tuple", "list", "dict"],
+            ["bool", "int", "tuple", "str", "float", "list"]
+        ]
+    },
+    {
+        "que_number": 20,
+        "lv": 0,
+        "kinds": "타입 확인",
+        "testcase": [
+            [(list, [1, 2, 3]), (int, 4), (str, "hello")],
+            [(str, 100), (dict, {"a": 1}), (tuple, (1, 2, 3))],
+            [(float, 3.14), (list, "not a list"), (dict, {"key": "value"})],
+            [(bool, True), (int, False), (str, "test string")],
+            [(tuple, (1, 2)), (list, [1, "a", 3.14]), (dict, {})]
+        ],
+        "result": [
+            [True, True, True],
+            [False, True, True],
+            [True, False, True],
+            [True, False, True],
+            [True, True, True]
+        ]
     }
 ]

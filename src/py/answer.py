@@ -169,6 +169,17 @@ def solution(schedules):
     return all_schedules[:3]
 
 
+def solution(data):
+    all_schedules = []
+
+    for day, dates in data.items():
+        for date in dates:
+            converted_date = f"{date[2:]} {day}"
+            all_schedules.append(converted_date)
+    all_schedules.sort(reverse=True)
+    return all_schedules[:3]
+
+
 # 18
 def solution(temperature_data):
     # 온도 데이터를 (온도, 날짜) 형식의 튜플 리스트로 변환합니다.
@@ -195,3 +206,32 @@ test_data = {
     "2024-01-07": 18,
 }
 print(solution(test_data))
+
+
+def solution(data):
+    temp_list = [(temp, date) for date, temp in data.items()]
+    temp_list.sort(key=lambda x: (-x[0], x[1]))
+    top_three = temp_list[:3]
+    return [f"{date[2:]}: {temp}" for temp, date in top_three]
+
+
+# 19
+def solution(data_list):
+    # 각 항목의 데이터 타입을 확인하고 타입 이름을 문자열로 반환합니다.
+    return [type(item).__name__ for item in data_list]
+
+
+# 테스트
+test_data = [123, 4.56, "hello", [1, 2, 3], (4, 5), {"a": 1, "b": 2}]
+print(solution(test_data))
+
+
+# 20
+def solution(class_instance_pairs):
+    # 각 클래스와 인스턴스 쌍에 대해 isinstance 함수를 사용하여 타입 확인을 수행합니다.
+    return [isinstance(instance, class_) for class_, instance in class_instance_pairs]
+
+
+# 테스트
+test_pairs = [(list, [1, 2, 3]), (int, 4), (str, "hello")]
+print(solution(test_pairs))
