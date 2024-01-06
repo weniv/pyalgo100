@@ -25,7 +25,8 @@ testcase_and_result = [
     {"que_number": 21, "lv": 0, "kinds": "탐색"},
     {"que_number": 22, "lv": 0, "kinds": "탐색"},
     {"que_number": 23, "lv": 0, "kinds": "탐색"},
-    {"que_number": 24, "lv": 0, "kinds": "탐색, 동적 프로그래밍, 카데인 알고리즘"},
-    {"que_number": 25, "lv": 0, "kinds": "탐색, 에라토스테네스의 체"},
-    {"que_number": 26, "lv": 0, "kinds": "탐색, 슬라이딩 윈도우"}
+    {"que_number": 24, "lv": 1, "kinds": "탐색, 동적 프로그래밍, 카데인 알고리즘"},
+    {"que_number": 25, "lv": 1, "kinds": "탐색, 에라토스테네스의 체"},
+    {"que_number": 26, "lv": 0, "kinds": "탐색, 슬라이딩 윈도우"},
+    {"que_number": 27, "lv": 1, "kinds": "탐색, 슬라이딩 윈도우"}
 ]

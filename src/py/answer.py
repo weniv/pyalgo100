@@ -330,3 +330,22 @@ def solution(data):
         max_sum = max(max_sum, window_sum)
 
     return max_sum
+
+
+# 27
+def solution(data):
+    nums, s = data
+    min_length = float("inf")
+    window_sum = 0
+    window_start = 0
+
+    for window_end in range(len(nums)):
+        window_sum += nums[window_end]
+
+        # 윈도우의 합이 s 이상이 되면 시작점을 이동시키면서 최소 길이를 갱신
+        while window_sum >= s:
+            min_length = min(min_length, window_end - window_start + 1)
+            window_sum -= nums[window_start]
+            window_start += 1
+
+    return min_length if min_length != float("inf") else 0
