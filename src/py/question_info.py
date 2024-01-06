@@ -1,4 +1,5 @@
 # notebook output을 위한 파일입니다.
+# json 형식으로 저장되어 있습니다. formatter를 비활성화 하고 저장해주세요.
 testcase_and_result = [
     {"que_number": 0, "lv": "", "kinds": "", "testcase": "", "result": ""},
     {"que_number": 1, "lv": 0, "kinds": "요구사항 구현"},
@@ -23,5 +24,8 @@ testcase_and_result = [
     {"que_number": 20, "lv": 0, "kinds": "타입 확인"},
     {"que_number": 21, "lv": 0, "kinds": "탐색"},
     {"que_number": 22, "lv": 0, "kinds": "탐색"},
-    {"que_number": 23, "lv": 0, "kinds": "탐색"}
+    {"que_number": 23, "lv": 0, "kinds": "탐색"},
+    {"que_number": 24, "lv": 0, "kinds": "탐색, 동적 프로그래밍, 카데인 알고리즘"},
+    {"que_number": 25, "lv": 0, "kinds": "탐색, 에라토스테네스의 체"},
+    {"que_number": 26, "lv": 0, "kinds": "탐색, 슬라이딩 윈도우"}
 ]

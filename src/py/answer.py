@@ -278,3 +278,55 @@ def solution(data):
 def solution(data):
     matrix, target = data
     return target in sum(matrix, [])
+
+
+# 24
+# 카데인 알고리즘
+# 현재까지의 최대 합과 현재 위치에서의 최대합을 갱신합니다.
+# 이 알고리즘은 현재 위치까지의 최대합이 음수인 경우 현재 위치부터 다시 더하기 시작하는 알고리즘입니다.
+# 음수가 아니면 더해나가는 것이 최대합이 되는 것을 응용한 것입니다.
+def solution(data):
+    if not data:
+        return 0
+
+    max_sum = current_sum = data[0]
+
+    for num in data[1:]:
+        print(num)
+        # 현재 값인 num과 현재 위치까지의 최대합과 num을 더한 값 중 큰 값을 현재 위치까지의 최대합으로 설정합니다. 이전까지 더한 값이 음수인 경우 '현재 값'부터 다시 더하기 시작합니다.
+        current_sum = max(num, current_sum + num)
+        # 이렇게 설정된 현재 위치까지의 최대합을 최대 합과 비교하여 더 큰 값을 최대 합으로 설정합니다.
+        max_sum = max(max_sum, current_sum)
+        print("-----------")
+
+    return max_sum
+
+
+# 25
+def solution(N):
+    prime = [True] * (N + 1)
+    prime[0] = prime[1] = False
+    p = 2
+
+    while p * p <= N:
+        if prime[p]:
+            for i in range(p * p, N + 1, p):
+                prime[i] = False
+        p += 1
+
+    return sum(prime)
+
+
+# 26
+def solution(data):
+    nums, k = data
+    # 윈도우의 초기 합계 계산
+    window_sum = sum(nums[:k])
+    max_sum = window_sum
+
+    # 슬라이딩 윈도우를 이용해 최대 합계 탐색
+    for i in range(len(nums) - k):
+        window_sum = window_sum - nums[i] + nums[i + k]
+        max_sum = max(max_sum, window_sum)
+
+    return max_sum
