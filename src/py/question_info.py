@@ -1,0 +1,27 @@
+# notebook output을 위한 파일입니다.
+testcase_and_result = [
+    {"que_number": 0, "lv": "", "kinds": "", "testcase": "", "result": ""},
+    {"que_number": 1, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 2, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 3, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 4, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 5, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 6, "lv": 0, "kinds": "요구사항 구현"},
+    {"que_number": 7, "lv": 0, "kinds": "정렬"},
+    {"que_number": 8, "lv": 0, "kinds": "정렬"},
+    {"que_number": 9, "lv": 0, "kinds": "정렬"},
+    {"que_number": 10, "lv": 0, "kinds": "정렬"},
+    {"que_number": 11, "lv": 0, "kinds": "정렬"},
+    {"que_number": 12, "lv": 0, "kinds": "정렬"},
+    {"que_number": 13, "lv": 0, "kinds": "정렬"},
+    {"que_number": 14, "lv": 0, "kinds": "정렬"},
+    {"que_number": 15, "lv": 0, "kinds": "정렬"},
+    {"que_number": 16, "lv": 0, "kinds": "정렬"},
+    {"que_number": 17, "lv": 0, "kinds": "정렬"},
+    {"que_number": 18, "lv": 0, "kinds": "분석"},
+    {"que_number": 19, "lv": 0, "kinds": "타입 확인"},
+    {"que_number": 20, "lv": 0, "kinds": "타입 확인"},
+    {"que_number": 21, "lv": 0, "kinds": "탐색"},
+    {"que_number": 22, "lv": 0, "kinds": "탐색"},
+    {"que_number": 23, "lv": 0, "kinds": "탐색"}
+]

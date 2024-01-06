@@ -59,7 +59,7 @@ const downloadFile = async ({ data, fileName, fileType }) => {
 };
 
 const fetchQuestionInfo = async () => {
-  const res = await fetch(`${window.location.origin}/src/py/testcase.py`);
+  const res = await fetch(`${window.location.origin}/src/py/question_info.py`);
   if (res.status == 200) {
     const responseValue = await res.text();
     return responseValue;

@@ -237,3 +237,44 @@ def solution(class_instance_pairs):
 # 테스트
 test_pairs = [(list, [1, 2, 3]), (int, 4), (str, "hello")]
 print(solution(test_pairs))
+
+
+# 21
+def solution(data):
+    numbers, target = data
+    # 주어진 배열에서 타겟 숫자의 위치를 찾습니다.
+    return numbers.index(target) if target in numbers else False
+
+
+# 테스트
+test_data_1 = ([1, 3, 5, 7, 9], 5)
+print(solution(test_data_1))
+
+test_data_2 = ([2, 4, 6, 8, 10], 7)
+print(solution(test_data_2))
+
+
+# 22
+def solution(data):
+    s, target = data
+    return s.find(target) if target in s else False
+
+
+# 23
+def solution(data):
+    matrix, target = data
+    # 각 행을 순회하며 타겟 숫자 탐색
+    for row in matrix:
+        if target in row:
+            return True
+    return False
+
+
+def solution(data):
+    matrix, target = data
+    return any([target in row for row in matrix])
+
+
+def solution(data):
+    matrix, target = data
+    return target in sum(matrix, [])
