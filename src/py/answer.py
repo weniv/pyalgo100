@@ -349,3 +349,24 @@ def solution(data):
             window_start += 1
 
     return min_length if min_length != float("inf") else 0
+
+
+# 28
+def solution(data):
+    nums, target = data
+    closest_sum = float("inf")
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        # 타겟 값에 더 가까운 합을 찾으면 업데이트
+        if abs(target - current_sum) < abs(target - closest_sum):
+            closest_sum = current_sum
+
+        # 포인터 이동
+        if current_sum < target:
+            left += 1
+        else:
+            right -= 1
+
+    return closest_sum
