@@ -29,5 +29,7 @@ testcase_and_result = [
     {"que_number": 25, "lv": 1, "kinds": "탐색, 에라토스테네스의 체"},
     {"que_number": 26, "lv": 0, "kinds": "탐색, 슬라이딩 윈도우"},
     {"que_number": 27, "lv": 1, "kinds": "탐색, 슬라이딩 윈도우"},
-    {"que_number": 28, "lv": 1, "kinds": "탐색, 투 포인터"}
+    {"que_number": 28, "lv": 1, "kinds": "탐색, 투 포인터"},
+    {"que_number": 29, "lv": 0, "kinds": "비트 조작"},
+    {"que_number": 30, "lv": 0, "kinds": "비트 조작"}
 ]

@@ -216,48 +216,25 @@ def solution(data):
 
 
 # 19
-def solution(data_list):
-    # 각 항목의 데이터 타입을 확인하고 타입 이름을 문자열로 반환합니다.
-    return [type(item).__name__ for item in data_list]
-
-
-# 테스트
-test_data = [123, 4.56, "hello", [1, 2, 3], (4, 5), {"a": 1, "b": 2}]
-print(solution(test_data))
+def solution(data):
+    return [type(i).__name__ for i in data]
 
 
 # 20
-def solution(class_instance_pairs):
-    # 각 클래스와 인스턴스 쌍에 대해 isinstance 함수를 사용하여 타입 확인을 수행합니다.
-    return all(
-        [type(instance).__name__ == class_ for class_, instance in class_instance_pairs]
-    )
-
-
-# 테스트
-test_pairs = [(list, [1, 2, 3]), (int, 4), (str, "hello")]
-print(solution(test_pairs))
+def solution(data):
+    return all([type(instance).__name__ == class_ for class_, instance in data])
 
 
 # 21
 def solution(data):
-    numbers, target = data
-    # 주어진 배열에서 타겟 숫자의 위치를 찾습니다.
-    return numbers.index(target) if target in numbers else False
-
-
-# 테스트
-test_data_1 = ([1, 3, 5, 7, 9], 5)
-print(solution(test_data_1))
-
-test_data_2 = ([2, 4, 6, 8, 10], 7)
-print(solution(test_data_2))
+    arr, target = data
+    return arr.index(target) if target in arr else False
 
 
 # 22
 def solution(data):
     s, target = data
-    return s.find(target) if target in s else False
+    return s.index(target) if target in s else False
 
 
 # 23
@@ -370,3 +347,16 @@ def solution(data):
             right -= 1
 
     return closest_sum
+
+
+# 29
+def solution(nums):
+    result = 0
+    for num in nums:
+        result ^= num
+    return result
+
+
+# 30
+def solution(data):
+    return bin(data)[2:].replace("0", "B").replace("1", "A")
