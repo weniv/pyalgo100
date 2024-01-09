@@ -482,4 +482,11 @@ testcase_and_result = [
         "testcase": [5, 9, 15, 0, 8],
         "result": ["ABA", "ABBA", "AAAA", "B", "ABBB"],
     },
+    {
+        "que_number": 31,
+        "lv": 0,
+        "kinds": "비트 조작",
+        "testcase": [5, 9, 0, 15, 1023],
+        "result": [1018, 1014, 1023, 1008, 0],
+    },
 ]

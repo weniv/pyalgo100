@@ -360,3 +360,44 @@ def solution(nums):
 # 30
 def solution(data):
     return bin(data)[2:].replace("0", "B").replace("1", "A")
+
+
+# 31
+def solution(n):
+    # 10자리 이진수로 변환
+    binary_str = format(n, "010b")
+    """
+    b: 이진수(binary) 형식을 나타냅니다. 이 옵션은 정수를 이진수 형태의 문자열로 변환합니다.
+
+    010: 이 형식 지정자는 출력될 이진수의 총 길이를 10자리로 지정합니다. 이는 출력되는 이진수 문자열이 10자리가 되도록 합니다. 만약 이진수의 길이가 10자리보다 짧다면, 앞쪽에 '0'을 추가하여 길이를 10자리로 만듭니다.
+    """
+    print(binary_str)
+    # 비트 반전
+    inverted_binary_str = "".join("1" if bit == "0" else "0" for bit in binary_str)
+    # 반전된 이진수를 다시 정수로 변환
+    return int(inverted_binary_str, 2)
+
+
+def solution(n):
+    # 이진수로 변환하고 '0b' 제거 후 zfill 메서드를 이용하여 10자리로 만들기
+    binary_str = bin(n)[2:].zfill(10)
+    # 비트 반전
+    inverted_binary_str = "".join("1" if bit == "0" else "0" for bit in binary_str)
+    # 반전된 이진수를 다시 정수로 변환
+    return int(inverted_binary_str, 2)
+
+
+# 예시 실행
+print(solution(5))  # 예상 결과: 1018
+print(solution(9))  # 예상 결과: 1014
+print(solution(0))  # 예상 결과: 1023
+print(solution(15))  # 예상 결과: 1008
+print(solution(1023))  # 예상 결과: 0
+
+
+# 예시 실행
+print(solution(5))  # 예상 결과: 1014
+print(solution(9))  # 예상 결과: 1010
+print(solution(0))  # 예상 결과: 1023
+print(solution(15))  # 예상 결과: 1008
+print(solution(1023))  # 예상 결과: 0
