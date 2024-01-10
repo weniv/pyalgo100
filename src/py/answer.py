@@ -427,3 +427,49 @@ def solution(data):
     pattern = r"(\d{4})-(\d{2})-(\d{2})"
     matches = re.findall(pattern, data)
     return [(int(year), int(month), int(day)) for year, month, day in matches]
+
+
+# 35
+import re
+
+
+def solution(data):
+    pattern = r"<[^>]+>"
+    return re.sub(pattern, "", data)
+
+
+# 36
+import re
+
+
+def solution(data):
+    pattern = r"(\d{3})(\d{3,4})(\d{4})"
+    return re.sub(pattern, r"\1-\2-\3", data)
+
+
+# 37
+import re
+
+
+def solution(data):
+    pattern = r"\[(?P<time>\d{2}:\d{2}:\d{2})\] (?P<message>.+)"
+    match = re.match(pattern, data)
+    if match:
+        return match.groupdict()
+    else:
+        return None
+
+
+# 37
+import re
+
+
+def solution(data):
+    pattern = r"\[(?P<time>\d{2}:\d{2}:\d{2})\] (?P<message>.+)"
+    match = re.match(pattern, data)
+    if match:
+        time = match.group("time")
+        message = match.group("message")
+        return {"time": time, "message": message}
+    else:
+        return None

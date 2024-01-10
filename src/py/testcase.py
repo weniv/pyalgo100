@@ -520,4 +520,41 @@ testcase_and_result = [
         ],
         "result": [[(2024, 1, 20)], [(2023, 12, 31), (2024, 1, 1), (2024, 2, 28)], []],
     },
+    {
+        "que_number": 35,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "<p>Hello, <b>World</b>!</p>",
+            "<div><i>Sample</i> Text</div>",
+            "No tags here.",
+        ],
+        "result": ["Hello, World!", "Sample Text", "No tags here."],
+    },
+    {
+        "que_number": 36,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "Contact me at 01012345678.",
+            "My number is 03112345678. Call me!",
+            "No numbers here.",
+        ],
+        "result": [
+            "Contact me at 010-1234-5678.",
+            "My number is 031-1234-5678. Call me!",
+            "No numbers here.",
+        ],
+    },
+    {
+        "que_number": 37,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": ["[08:55:45] 사용자 로그인", "[13:01:02] 데이터베이스 접근", "[23:59:59] 시스템 종료"],
+        "result": [
+            {"time": "08:55:45", "message": "사용자 로그인"},
+            {"time": "13:01:02", "message": "데이터베이스 접근"},
+            {"time": "23:59:59", "message": "시스템 종료"},
+        ],
+    },
 ]
