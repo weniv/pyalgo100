@@ -417,3 +417,13 @@ import re
 def solution(data):
     pattern = r"^[a-zA-Z0-9._+]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     return bool(re.match(pattern, data))
+
+
+# 34
+import re
+
+
+def solution(data):
+    pattern = r"(\d{4})-(\d{2})-(\d{2})"
+    matches = re.findall(pattern, data)
+    return [(int(year), int(month), int(day)) for year, month, day in matches]

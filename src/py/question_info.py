@@ -34,5 +34,6 @@ testcase_and_result = [
     {"que_number": 30, "lv": 0, "kinds": "비트 조작"},
     {"que_number": 31, "lv": 0, "kinds": "비트 조작"},
     {"que_number": 32, "lv": 0, "kinds": "비트 조작"},
-    {"que_number": 33, "lv": 0, "kinds": "정규표현식"}
+    {"que_number": 33, "lv": 0, "kinds": "정규표현식"},
+    {"que_number": 34, "lv": 0, "kinds": "정규표현식"}
 ]

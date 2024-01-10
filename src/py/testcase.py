@@ -509,4 +509,15 @@ testcase_and_result = [
         ],
         "result": [True, True, False, False, False],
     },
+    {
+        "que_number": 34,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "The event will happen on 2024-01-20.",
+            "Dates: 2023-12-31, 2024-01-01, and 2024-02-28.",
+            "No dates here.",
+        ],
+        "result": [[(2024, 1, 20)], [(2023, 12, 31), (2024, 1, 1), (2024, 2, 28)], []],
+    },
 ]
