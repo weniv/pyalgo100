@@ -395,9 +395,25 @@ print(solution(15))  # 예상 결과: 1008
 print(solution(1023))  # 예상 결과: 0
 
 
-# 예시 실행
-print(solution(5))  # 예상 결과: 1014
-print(solution(9))  # 예상 결과: 1010
-print(solution(0))  # 예상 결과: 1023
-print(solution(15))  # 예상 결과: 1008
-print(solution(1023))  # 예상 결과: 0
+# 32
+def solution(nums):
+    if not nums:
+        return (0, 0)
+
+    bit_and = nums[0]
+    bit_or = nums[0]
+
+    for num in nums[1:]:
+        bit_and &= num
+        bit_or |= num
+
+    return (bit_and, bit_or)
+
+
+# 33
+import re
+
+
+def solution(data):
+    pattern = r"^[a-zA-Z0-9._+]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    return bool(re.match(pattern, data))

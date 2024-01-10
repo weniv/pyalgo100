@@ -489,4 +489,24 @@ testcase_and_result = [
         "testcase": [5, 9, 0, 15, 1023],
         "result": [1018, 1014, 1023, 1008, 0],
     },
+    {
+        "que_number": 32,
+        "lv": 0,
+        "kinds": "비트 조작",
+        "testcase": [[12, 5, 6], [7, 14, 3], [1, 1, 1], [0, 0, 0], [15, 7, 3]],
+        "result": [(4, 15), (2, 15), (1, 1), (0, 0), (3, 15)],
+    },
+    {
+        "que_number": 33,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "user@example.com",
+            "user.name@domain.co",
+            "user@domain",
+            "@example.com",
+            "example@.com",
+        ],
+        "result": [True, True, False, False, False],
+    },
 ]

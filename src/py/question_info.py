@@ -32,5 +32,7 @@ testcase_and_result = [
     {"que_number": 28, "lv": 1, "kinds": "탐색, 투 포인터"},
     {"que_number": 29, "lv": 0, "kinds": "비트 조작"},
     {"que_number": 30, "lv": 0, "kinds": "비트 조작"},
-    {"que_number": 31, "lv": 0, "kinds": "비트 조작"}
+    {"que_number": 31, "lv": 0, "kinds": "비트 조작"},
+    {"que_number": 32, "lv": 0, "kinds": "비트 조작"},
+    {"que_number": 33, "lv": 0, "kinds": "정규표현식"}
 ]
