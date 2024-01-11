@@ -527,3 +527,8 @@ def solution(data):
     numbers_and_commas = re.findall(r"[\d,]+", data)
     extracted_numbers = "".join(numbers_and_commas).replace(",", "")
     return extracted_numbers
+
+
+# 40
+def solution(data):
+    return "".join([char for char in data if char.isdigit()])
