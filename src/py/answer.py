@@ -473,3 +473,57 @@ def solution(data):
         return {"time": time, "message": message}
     else:
         return None
+
+
+# 38
+import re
+
+
+# 38
+import re
+
+
+def solution(data):
+    pattern = r"(?P<protocol>https?|ftp)://(?P<domain>[^/\s]+)(?P<path>/[^?]*|)(\?(?P<query>[^#\s]*))?"
+    match = re.match(pattern, data)
+    if match:
+        return {
+            "protocol": match.group("protocol"),
+            "domain": match.group("domain"),
+            "path": match.group("path") if match.group("path") else "",
+            "query": match.group("query") if match.group("query") else "",
+        }
+    else:
+        return None
+
+
+# 39
+import re
+
+
+def solution(data):
+    pattern = r".*\.([^./]+)$"
+    match = re.search(pattern, data)
+    if match:
+        return match.group(1)
+    else:
+        return ""
+
+
+# 39
+def solution(data):
+    parts = data.split(".")
+    if len(parts) > 1 and parts[-1] != "":
+        return parts[-1]
+    else:
+        return ""
+
+
+# 40
+import re
+
+
+def solution(data):
+    numbers_and_commas = re.findall(r"[\d,]+", data)
+    extracted_numbers = "".join(numbers_and_commas).replace(",", "")
+    return extracted_numbers

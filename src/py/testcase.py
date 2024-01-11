@@ -557,4 +557,48 @@ testcase_and_result = [
             {"time": "23:59:59", "message": "시스템 종료"},
         ],
     },
+    {
+        "que_number": 38,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "http://www.example.com",
+            "https://www.example.com/path/to/resource?user=abc&lang=en",
+            "ftp://ftp.example.com/folder?page=1",
+        ],
+        "result": [
+            {"protocol": "http", "domain": "www.example.com", "path": "", "query": ""},
+            {
+                "protocol": "https",
+                "domain": "www.example.com",
+                "path": "/path/to/resource",
+                "query": "user=abc&lang=en",
+            },
+            {
+                "protocol": "ftp",
+                "domain": "ftp.example.com",
+                "path": "/folder",
+                "query": "page=1",
+            },
+        ],
+    },
+    {
+        "que_number": 39,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": [
+            "example/document.pdf",
+            "https://www.example.com/image.jpg",
+            "example/folder",
+            "archive.tar.gz",
+        ],
+        "result": ["pdf", "jpg", "", "gz"],
+    },
+    {
+        "que_number": 40,
+        "lv": 0,
+        "kinds": "정규표현식",
+        "testcase": ["가격은 3,500원입니다.", "오늘은 2023년 3월 5일", "문자만 있는 경우"],
+        "result": ["3500", "202335", ""],
+    },
 ]
