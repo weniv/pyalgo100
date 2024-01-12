@@ -601,4 +601,37 @@ testcase_and_result = [
         "testcase": ["가격은 3,500원입니다.", "오늘은 2023년 3월 5일", "문자만 있는 경우"],
         "result": ["3500", "202335", ""],
     },
+    {
+        "que_number": 41,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": ["{[()()]}", "[(])", "({[]})", "({[}])"],
+        "result": [True, False, True, False],
+    },
+    {
+        "que_number": 42,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            {"size": 3, "requests": ["A", "B", "C", "D"]},
+            {"size": 2, "requests": ["X", "Y", "Z"]},
+            {"size": 1, "requests": ["P", "Q", "R"]},
+        ],
+        "result": [["B", "C", "D"], ["Y", "Z"], ["R"]],
+    },
+    {
+        "que_number": 43,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            {"size": 3, "pages": ["page1", "page2", "page3", "page2", "page4"]},
+            {"size": 2, "pages": ["pageA", "pageB", "pageC"]},
+            {"size": 4, "pages": ["pageX", "pageY", "pageZ", "pageX", "pageW"]},
+        ],
+        "result": [
+            ["page3", "page2", "page4"],
+            ["pageB", "pageC"],
+            ["pageY", "pageZ", "pageX", "pageW"],
+        ],
+    },
 ]

@@ -42,5 +42,8 @@ testcase_and_result = [
     {"que_number": 38, "lv": 0, "kinds": "정규표현식"},
     {"que_number": 39, "lv": 0, "kinds": "정규표현식"},
     {"que_number": 39, "lv": 0, "kinds": "정규표현식"},
-    {"que_number": 40, "lv": 0, "kinds": "정규표현식"}
+    {"que_number": 40, "lv": 0, "kinds": "정규표현식"},
+    {"que_number": 41, "lv": 0, "kinds": "데이터 구조"},
+    {"que_number": 42, "lv": 0, "kinds": "데이터 구조"},
+    {"que_number": 42, "lv": 0, "kinds": "데이터 구조"}
 ]

@@ -532,3 +532,50 @@ def solution(data):
 # 40
 def solution(data):
     return "".join([char for char in data if char.isdigit()])
+
+
+# 41
+def solution(data):
+    stack = []
+    bracket_map = {"(": ")", "{": "}", "[": "]"}
+
+    for char in data:
+        if char in bracket_map:
+            stack.append(char)
+        elif stack and char == bracket_map[stack[-1]]:
+            stack.pop()
+        else:
+            return False
+
+    return not stack
+
+
+# 42
+from collections import deque
+
+
+def solution(data):
+    size = data["size"]
+    requests = data["requests"]
+    queue = deque(maxlen=size)
+    for request in requests:
+        queue.append(request)
+    return list(queue)
+
+
+# 43
+from collections import OrderedDict
+
+
+def solution(data):
+    size = data["size"]
+    pages = data["pages"]
+    cache = OrderedDict()
+
+    for page in pages:
+        if page in cache:
+            cache.pop(page)
+        elif len(cache) >= size:
+            cache.popitem(last=False)
+        cache[page] = True
+    return list(cache.keys())
