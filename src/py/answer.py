@@ -579,3 +579,47 @@ def solution(data):
             cache.popitem(last=False)
         cache[page] = True
     return list(cache.keys())
+
+# 44
+def solution(data):
+    words = data.lower().split()
+    frequency = {}
+    for word in words:
+        cleaned_word = ''.join(char for char in word if char.isalpha())
+        if cleaned_word:
+            frequency[cleaned_word] = frequency.get(cleaned_word, 0) + 1
+    return frequency
+
+
+# 45
+from collections import deque
+
+def solution(data):
+    queue1 = deque(data["queue1"])
+    queue2 = deque(data["queue2"])
+    sum1, sum2 = sum(queue1), sum(queue2)
+    total_sum = sum1 + sum2
+    operations = 0
+
+    if total_sum % 2 != 0:
+        return -1
+
+    while sum1 != sum2:
+        if sum1 > sum2:
+            value = queue1.popleft()
+            sum1 -= value
+            sum2 += value
+            queue2.append(value)
+        else:
+            value = queue2.popleft()
+            sum2 -= value
+            sum1 += value
+            queue1.append(value)
+        operations += 1
+
+        if operations > len(queue1) + len(queue2):
+            return -1
+
+    return operations
+
+

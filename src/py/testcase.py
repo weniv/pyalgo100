@@ -634,4 +634,30 @@ testcase_and_result = [
             ["pageY", "pageZ", "pageX", "pageW"],
         ],
     },
+    {
+        "que_number": 44,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": ["Hello world, hello", "The quick brown fox", "One one one two"],
+        "result": [
+            {"hello": 2, "world": 1},
+            {"the": 1, "quick": 1, "brown": 1, "fox": 1},
+            {"one": 3, "two": 1}
+        ],
+    },
+    {
+        "que_number": 45,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            {"queue1": [1, 2, 1, 2], "queue2": [1, 10, 1, 2]},
+            {"queue1": [1, 1, 1, 9], "queue2": [1, 1, 5, 3]},
+            {"queue1": [1, 1, 1], "queue2": [10]}
+        ],
+        "result": [
+            7,
+            1,
+            -1
+        ],
+    },
 ]
