@@ -623,3 +623,65 @@ def solution(data):
     return operations
 
 
+# 46
+from collections import deque
+
+def solution(data):
+    size = data['size']
+    commands = data['commands']
+    queue = deque(maxlen=size)
+    result = []
+
+    for command in commands:
+        if command.startswith('insert'):
+            _, element = command.split()
+            if len(queue) == queue.maxlen:
+                queue.popleft()
+            queue.append(element)
+            result.append(None)
+        elif command == 'delete':
+            if queue:
+                queue.popleft()
+            result.append(None)
+        elif command.startswith('search'):
+            _, element = command.split()
+            result.append(element in queue)
+
+    return result
+
+
+
+# 46 클래스 구현 문제
+def solution(data):
+    class CircularQueue:
+        def __init__(self, size):
+            self.queue = []
+            self.size = size
+
+        def insert(self, element):
+            self.queue.append(element)
+            if len(self.queue) > self.size:
+                self.queue.pop(0)
+
+        def delete(self):
+            if self.queue:
+                self.queue.pop(0)
+
+        def search(self, element):
+            return element in self.queue
+    
+    cq = CircularQueue(data['size'])
+    result = []
+    for command in data['commands']:
+        if command.startswith('insert'):
+            _, element = command.split()
+            cq.insert(element)
+            result.append(None)
+        elif command == 'delete':
+            cq.delete()
+            result.append(None)
+        elif command.startswith('search'):
+            _, element = command.split()
+            result.append(cq.search(element))
+
+    return result

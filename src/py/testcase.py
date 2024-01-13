@@ -660,4 +660,19 @@ testcase_and_result = [
             -1
         ],
     },
+    {
+        "que_number": 46,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            {"size": 3, "commands": ["insert 1", "insert 2", "insert 3", "insert 4", "search 3", "delete", "search 3"]},
+            {"size": 2, "commands": ["insert A", "insert B", "insert C", "search B"]},
+            {"size": 4, "commands": ["insert X", "delete", "search X"]}
+        ],
+        "result": [
+            [None, None, None, None, True, None, True],
+            [None, None, None, True],
+            [None, None, False]
+        ],
+    },
 ]
