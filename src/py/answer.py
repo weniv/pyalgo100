@@ -580,12 +580,13 @@ def solution(data):
         cache[page] = True
     return list(cache.keys())
 
+
 # 44
 def solution(data):
     words = data.lower().split()
     frequency = {}
     for word in words:
-        cleaned_word = ''.join(char for char in word if char.isalpha())
+        cleaned_word = "".join(char for char in word if char.isalpha())
         if cleaned_word:
             frequency[cleaned_word] = frequency.get(cleaned_word, 0) + 1
     return frequency
@@ -593,6 +594,7 @@ def solution(data):
 
 # 45
 from collections import deque
+
 
 def solution(data):
     queue1 = deque(data["queue1"])
@@ -626,29 +628,29 @@ def solution(data):
 # 46
 from collections import deque
 
+
 def solution(data):
-    size = data['size']
-    commands = data['commands']
+    size = data["size"]
+    commands = data["commands"]
     queue = deque(maxlen=size)
     result = []
 
     for command in commands:
-        if command.startswith('insert'):
+        if command.startswith("insert"):
             _, element = command.split()
             if len(queue) == queue.maxlen:
                 queue.popleft()
             queue.append(element)
             result.append(None)
-        elif command == 'delete':
+        elif command == "delete":
             if queue:
                 queue.popleft()
             result.append(None)
-        elif command.startswith('search'):
+        elif command.startswith("search"):
             _, element = command.split()
             result.append(element in queue)
 
     return result
-
 
 
 # 46 클래스 구현 문제
@@ -669,19 +671,131 @@ def solution(data):
 
         def search(self, element):
             return element in self.queue
-    
-    cq = CircularQueue(data['size'])
+
+    cq = CircularQueue(data["size"])
     result = []
-    for command in data['commands']:
-        if command.startswith('insert'):
+    for command in data["commands"]:
+        if command.startswith("insert"):
             _, element = command.split()
             cq.insert(element)
             result.append(None)
-        elif command == 'delete':
+        elif command == "delete":
             cq.delete()
             result.append(None)
-        elif command.startswith('search'):
+        elif command.startswith("search"):
             _, element = command.split()
             result.append(cq.search(element))
 
     return result
+
+
+# 47
+
+
+def solution(data):
+    def find_max_depth(tree, index=0):
+        if index >= len(tree) or tree[index] is None:
+            return 0
+        left_depth = find_max_depth(tree, 2 * index + 1)
+        right_depth = find_max_depth(tree, 2 * index + 2)
+        return max(left_depth, right_depth) + 1
+
+    return find_max_depth(data)
+
+
+# 47
+def solution(tree):
+    length = len(tree)
+    depth = 0
+    count = 1
+    while True:
+        if count > length:
+            break
+        count *= 2
+        depth += 1
+    return depth
+
+
+# 48
+def solution(data):
+    tree = data["tree"]
+    if not tree:
+        return []
+
+    stack = [(tree, tree["value"])]
+    path_sums = []
+
+    while stack:
+        current, current_sum = stack.pop()
+
+        # 현재 노드가 리프 노드인 경우, 경로 합을 결과에 추가
+        if not current.get("left") and not current.get("right"):
+            path_sums.append(current_sum)
+
+        # 오른쪽 자식이 있으면 스택에 추가
+        if current.get("right"):
+            stack.append((current["right"], current_sum + current["right"]["value"]))
+
+        # 왼쪽 자식이 있으면 스택에 추가
+        if current.get("left"):
+            stack.append((current["left"], current_sum + current["left"]["value"]))
+
+    return path_sums
+
+
+# 49
+from collections import deque
+
+
+def solution(data):
+    def bfs_shortest_path(graph, start, end):
+        visited = set()
+        queue = deque([(start, 0)])  # (current node, distance)
+
+        while queue:
+            current, distance = queue.popleft()
+            if current == end:
+                return distance
+
+            if current not in visited:
+                visited.add(current)
+                for neighbor in graph.get(current, []):
+                    queue.append((neighbor, distance + 1))
+
+        return -1  # Path not found
+
+    graph = data["graph"]
+    start = data["start"]
+    end = data["end"]
+    return bfs_shortest_path(graph, start, end)
+
+
+# 50
+def solution(data):
+    def has_cycle(graph):
+        visited = set()
+        rec_stack = set()
+
+        for node in graph:
+            if node not in visited:
+                if dfs(graph, node, visited, rec_stack):
+                    return True
+
+        return False
+
+    def dfs(graph, current, visited, rec_stack):
+        if current not in visited:
+            visited.add(current)
+            rec_stack.add(current)
+
+            for neighbor in graph.get(current, []):
+                if neighbor not in visited:
+                    if dfs(graph, neighbor, visited, rec_stack):
+                        return True
+                elif neighbor in rec_stack:
+                    return True
+
+        rec_stack.remove(current)
+        return False
+
+    return has_cycle(data["graph"])

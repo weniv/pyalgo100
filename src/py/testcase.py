@@ -642,7 +642,7 @@ testcase_and_result = [
         "result": [
             {"hello": 2, "world": 1},
             {"the": 1, "quick": 1, "brown": 1, "fox": 1},
-            {"one": 3, "two": 1}
+            {"one": 3, "two": 1},
         ],
     },
     {
@@ -652,27 +652,128 @@ testcase_and_result = [
         "testcase": [
             {"queue1": [1, 2, 1, 2], "queue2": [1, 10, 1, 2]},
             {"queue1": [1, 1, 1, 9], "queue2": [1, 1, 5, 3]},
-            {"queue1": [1, 1, 1], "queue2": [10]}
+            {"queue1": [1, 1, 1], "queue2": [10]},
         ],
-        "result": [
-            7,
-            1,
-            -1
-        ],
+        "result": [7, 1, -1],
     },
     {
         "que_number": 46,
         "lv": 0,
         "kinds": "데이터 구조",
         "testcase": [
-            {"size": 3, "commands": ["insert 1", "insert 2", "insert 3", "insert 4", "search 3", "delete", "search 3"]},
+            {
+                "size": 3,
+                "commands": [
+                    "insert 1",
+                    "insert 2",
+                    "insert 3",
+                    "insert 4",
+                    "search 3",
+                    "delete",
+                    "search 3",
+                ],
+            },
             {"size": 2, "commands": ["insert A", "insert B", "insert C", "search B"]},
-            {"size": 4, "commands": ["insert X", "delete", "search X"]}
+            {"size": 4, "commands": ["insert X", "delete", "search X"]},
         ],
         "result": [
             [None, None, None, None, True, None, True],
             [None, None, None, True],
-            [None, None, False]
+            [None, None, False],
         ],
+    },
+    {
+        "que_number": 47,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            [1, 2, 3, None, None, 4, 5],
+            [1],
+            [3, 9, 20, None, None, 15, 7],
+            [
+                1,
+                None,
+                2,
+                None,
+                None,
+                None,
+                3,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                4,
+            ],
+            [1, 2, None, 3],
+        ],
+        "result": [3, 1, 3, 4, 3],
+    },
+    {
+        "que_number": 48,
+        "lv": 0,
+        "kinds": "데이터 구조",
+        "testcase": [
+            {
+                "tree": {
+                    "value": 1,
+                    "left": {"value": 2, "left": {"value": 4}, "right": {"value": 5}},
+                    "right": {"value": 3},
+                }
+            },
+            {"tree": {"value": 3}},
+            {"tree": {"value": 1, "left": {"value": 2}, "right": {"value": 3}}},
+        ],
+        "result": [[7, 8, 4], [3], [3, 4]],
+    },
+    {
+        "que_number": 49,
+        "lv": 0,
+        "kinds": "데이터 구조, 너비 우선 탐색(BFS)",
+        "testcase": [
+            {
+                "graph": {"0": ["1", "2"], "1": ["0", "3"], "2": ["0"], "3": ["1"]},
+                "start": "0",
+                "end": "3",
+            },
+            {
+                "graph": {"0": ["1"], "1": ["0", "2"], "2": ["1"]},
+                "start": "0",
+                "end": "2",
+            },
+            {"graph": {"0": ["1"], "1": ["0"]}, "start": "0", "end": "1"},
+        ],
+        "result": [2, 2, 1],
+    },
+    {
+        "que_number": 50,
+        "lv": 0,
+        "kinds": "데이터 구조, 깊이 우선 탐색(DFS)",
+        "testcase": [
+            {
+                "graph": {
+                    "0": ["1"],
+                    "1": ["2"],
+                    "2": ["0", "3"],
+                    "3": ["4"],
+                    "4": ["5"],
+                    "5": [],
+                }
+            },
+            {
+                "graph": {
+                    "0": ["1"],
+                    "1": ["2"],
+                    "2": ["3"],
+                    "3": ["4"],
+                    "4": ["5"],
+                    "5": [],
+                }
+            },
+            {"graph": {"0": ["1", "2"], "1": ["3"], "2": [], "3": ["2"]}},
+        ],
+        "result": [True, False, False],
     },
 ]

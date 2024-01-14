@@ -48,5 +48,9 @@ testcase_and_result = [
     {"que_number": 43, "lv": 0, "kinds": "데이터 구조"},
     {"que_number": 44, "lv": 0, "kinds": "데이터 구조"},
     {"que_number": 45, "lv": 0, "kinds": "데이터 구조"},
-    {"que_number": 46, "lv": 0, "kinds": "데이터 구조"}
+    {"que_number": 46, "lv": 1, "kinds": "데이터 구조"},
+    {"que_number": 47, "lv": 1, "kinds": "데이터 구조"},
+    {"que_number": 48, "lv": 1, "kinds": "데이터 구조"},
+    {"que_number": 49, "lv": 2, "kinds": "데이터 구조, 너비 우선 탐색(BFS)"}
+    {"que_number": 50, "lv": 2, "kinds": "데이터 구조, 깊이 우선 탐색(DFS)"}
 ]
