@@ -55,5 +55,8 @@ testcase_and_result = [
     {"que_number": 50, "lv": 2, "kinds": "데이터 구조, 깊이 우선 탐색(DFS)"},
     {"que_number": 51, "lv": 0, "kinds": "그리디"},
     {"que_number": 52, "lv": 0, "kinds": "그리디"},
-    {"que_number": 53, "lv": 0, "kinds": "그리디"}
+    {"que_number": 53, "lv": 0, "kinds": "그리디"},
+    {"que_number": 54, "lv": 1, "kinds": "행렬"},
+    {"que_number": 55, "lv": 0, "kinds": "행렬"},
+    {"que_number": 56, "lv": 0, "kinds": "행렬"}
 ]

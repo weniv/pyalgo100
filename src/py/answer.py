@@ -842,3 +842,61 @@ def solution(data):
             capital -= cost
 
     return selected_companies
+
+
+# 54
+def solution(data):
+    room, path = data
+    rows, cols = len(room), len(room[0])
+    directions = {"U": (-1, 0), "D": (1, 0), "L": (0, -1), "R": (0, 1)}
+    cleaned_count = 0
+    x, y = 0, 0
+
+    if room[0][0] == 1:
+        cleaned_count += 1
+        room[0][0] = 0
+
+    for step in path:
+        dx, dy = directions[step]
+        nx, ny = x + dx, y + dy
+
+        # 경로가 방 안에 있고, 아직 청소되지 않은 칸이라면 청소
+        if 0 <= nx < rows and 0 <= ny < cols and room[nx][ny] == 1:
+            cleaned_count += 1
+            room[nx][ny] = 0  # 청소된 상태로 표시
+
+        # 로봇 위치 업데이트
+        if 0 <= nx < rows and 0 <= ny < cols:
+            x, y = nx, ny
+
+    return cleaned_count
+
+
+# 55
+def solution(data):
+    matrix = data
+    mine_count = 0
+
+    for row in matrix:
+        mine_count += row.count(1)
+
+    return mine_count
+
+
+# 56
+def solution(matrix):
+    mine_locations = []
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == 1:
+                mine_locations.append((row, col))
+    return mine_locations
+
+
+# 56
+import numpy as np
+
+
+def solution(matrix):
+    matrix_np = np.array(matrix)
+    return list(zip(*np.where(matrix_np == 1)))
