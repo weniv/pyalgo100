@@ -799,3 +799,46 @@ def solution(data):
         return False
 
     return has_cycle(data["graph"])
+
+
+# 51
+def solution(data):
+    def min_coins(coins, amount):
+        coins.sort(reverse=True)
+        count = 0
+        for coin in coins:
+            count += amount // coin
+            amount %= coin
+            if amount == 0:
+                break
+        return count
+
+    return min_coins(data["coins"], data["amount"])
+
+
+# 52
+def solution(data):
+    total_cost = data * 700
+    change = 10000 - total_cost
+
+    denominations = [10000, 5000, 1000, 500, 100]
+    change_list = [0, 0, 0, 0, 0]
+
+    for i, denom in enumerate(denominations):
+        change_list[i], change = divmod(change, denom)
+
+    return change_list
+
+
+# 53
+def solution(data):
+    investments, capital = data
+    investments.sort(key=lambda x: x[0])  # 투자 금액 기준으로 정렬
+
+    selected_companies = []
+    for cost, company in investments:
+        if capital >= cost:
+            selected_companies.append(company)
+            capital -= cost
+
+    return selected_companies
