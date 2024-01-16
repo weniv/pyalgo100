@@ -58,5 +58,7 @@ testcase_and_result = [
     {"que_number": 53, "lv": 0, "kinds": "그리디"},
     {"que_number": 54, "lv": 1, "kinds": "행렬"},
     {"que_number": 55, "lv": 0, "kinds": "행렬"},
-    {"que_number": 56, "lv": 0, "kinds": "행렬"}
+    {"que_number": 56, "lv": 0, "kinds": "행렬"},
+    {"que_number": 57, "lv": 0, "kinds": "행렬"},
+    {"que_number": 58, "lv": 1, "kinds": "행렬"}
 ]

@@ -900,3 +900,20 @@ import numpy as np
 def solution(matrix):
     matrix_np = np.array(matrix)
     return list(zip(*np.where(matrix_np == 1)))
+
+
+# 57
+def solution(data):
+    matrix, div = data
+    condition = lambda x: (x % div) == 0
+    for row in matrix:
+        if not all(condition(value) for value in row):
+            return False
+    return True
+
+
+# 58
+def solution(matrix):
+    if not matrix or len(matrix) != len(matrix[0]):
+        return "Error"
+    return [list(reversed(col)) for col in zip(*matrix)]
