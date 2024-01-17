@@ -917,3 +917,93 @@ def solution(matrix):
     if not matrix or len(matrix) != len(matrix[0]):
         return "Error"
     return [list(reversed(col)) for col in zip(*matrix)]
+
+
+# 59
+def solution(data):
+    matrix, condition = data
+    count = 0
+    total_sum = 0
+    for row in matrix:
+        for item in row:
+            if item >= condition:
+                count += 1
+                total_sum += item
+    return count, total_sum
+
+
+# 테스트 케이스 적용 예시
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+condition1 = 5
+result1 = solution(matrix1, condition1)
+print(result1)  # (4, 30)
+
+
+# 59
+import numpy as np
+
+
+def solution(matrix, condition):
+    np_matrix = np.array(matrix)
+    filtered_elements = np_matrix[np_matrix >= condition]
+    count = filtered_elements.size
+    total_sum = filtered_elements.sum()
+    return count, total_sum
+
+
+# 테스트 케이스 적용 예시
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+condition1 = 5
+result1 = solution(matrix1, condition1)
+print(result1)  # (4, 30)
+
+
+# 60
+def solution(data):
+    matrix, range_values = data
+    min_value, max_value = float("inf"), float("-inf")
+    lower_bound, upper_bound = range_values
+
+    for row in matrix:
+        for item in row:
+            if lower_bound <= item <= upper_bound:
+                min_value = min(min_value, item)
+                max_value = max(max_value, item)
+
+    return (max_value, min_value) if min_value != float("inf") else (None, None)
+
+
+# 테스트 케이스 적용 예시
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+range1 = (3, 7)
+result1 = solution(matrix1, range1)
+print(result1)  # (7, 3)
+
+
+import numpy as np
+
+
+# 60
+def solution(data):
+    matrix, range_values = data
+    np_matrix = np.array(matrix)
+    lower_bound, upper_bound = range_values
+
+    # 조건에 맞는 요소들을 필터링
+    filtered_elements = np_matrix[
+        (np_matrix >= lower_bound) & (np_matrix <= upper_bound)
+    ]
+
+    if filtered_elements.size == 0:
+        return (None, None)
+
+    max_value = np.max(filtered_elements)
+    min_value = np.min(filtered_elements)
+    return (max_value, min_value)
+
+
+# 테스트 케이스 적용 예시
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+range1 = (3, 7)
+result1 = solution(matrix1, range1)
+print(result1)  # (7, 3)
