@@ -62,5 +62,7 @@ testcase_and_result = [
     {"que_number": 57, "lv": 0, "kinds": "행렬"},
     {"que_number": 58, "lv": 1, "kinds": "행렬"},
     {"que_number": 59, "lv": 0, "kinds": "행렬"},
-    {"que_number": 60, "lv": 0, "kinds": "행렬"}
+    {"que_number": 60, "lv": 0, "kinds": "행렬"},
+    {"que_number": 61, "lv": 1, "kinds": "자료 구조, 데큐"},
+    {"que_number": 62, "lv": 1, "kinds": "자료 구조, 데큐"}
 ]

@@ -1007,3 +1007,50 @@ matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 range1 = (3, 7)
 result1 = solution(matrix1, range1)
 print(result1)  # (7, 3)
+
+
+# 61
+from collections import deque
+
+
+def solution(data):
+    deque_data, commands = data
+    dq = deque(deque_data)
+    for command in commands:
+        direction, count = command
+        if direction == "왼쪽":
+            for _ in range(min(count, len(dq))):
+                dq.popleft()
+        elif direction == "오른쪽":
+            for _ in range(min(count, len(dq))):
+                dq.pop()
+    return list(dq)
+
+
+# 테스트 케이스 적용 예시
+deque_data1 = [1, 2, 3, 4, 5]
+commands1 = [("왼쪽", 2), ("오른쪽", 1)]
+result1 = solution(deque_data1, commands1)
+print(result1)  # [3, 4]
+
+
+# 62
+from collections import deque
+
+
+def solution(data):
+    max_size, nums = data
+    dq = deque(maxlen=max_size)
+    result = []
+
+    for num in nums:
+        dq.append(num)
+        result.append(list(dq))
+
+    return result
+
+
+# 테스트 케이스 적용 예시
+data1 = [3, [1, 2, 3, 4, 5]]
+result1 = solution(data1)
+print(result1)  # [[1], [1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]]
