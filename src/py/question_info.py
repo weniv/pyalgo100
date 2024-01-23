@@ -64,5 +64,10 @@ testcase_and_result = [
     {"que_number": 59, "lv": 0, "kinds": "행렬"},
     {"que_number": 60, "lv": 0, "kinds": "행렬"},
     {"que_number": 61, "lv": 1, "kinds": "자료 구조, 데큐"},
-    {"que_number": 62, "lv": 1, "kinds": "자료 구조, 데큐"}
+    {"que_number": 62, "lv": 1, "kinds": "자료 구조, 데큐"},
+    {"que_number": 63, "lv": 1, "kinds": "문자열 처리"},
+    {"que_number": 64, "lv": 1, "kinds": "문자열 처리"},
+    {"que_number": 65, "lv": 0, "kinds": "문자열 처리"},
+    {"que_number": 66, "lv": 1, "kinds": "문자열 처리"},
+    {"que_number": 67, "lv": 1, "kinds": "문자열 처리"}
 ]

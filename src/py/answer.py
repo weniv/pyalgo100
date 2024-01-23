@@ -1054,3 +1054,85 @@ def solution(data):
 data1 = [3, [1, 2, 3, 4, 5]]
 result1 = solution(data1)
 print(result1)  # [[1], [1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]]
+
+
+# 63
+def solution(data):
+    text, n = data
+    if len(text) < n:
+        return []
+    return [text[i : i + n] for i in range(len(text) - n + 1)]
+
+
+# 테스트 케이스 적용 예시
+data1 = ["hello", 2]
+result1 = solution(data1)
+print(result1)  # ['he', 'el', 'll', 'lo']
+
+
+# 64
+def solution(data):
+    text, pattern = data
+    count = 0
+    i = 0
+
+    while i <= len(text) - len(pattern):
+        if text[i : i + len(pattern)] == pattern:
+            count += 1
+        i += 1
+
+    return count
+
+
+# 테스트 케이스 적용 예시
+data1 = ["testtesttest", "testtest"]
+result1 = solution(data1)
+print(result1)  # 2
+
+
+# 65
+def solution(data):
+    text, n = data
+    n %= len(text)  # 문자열 길이를 초과하는 이동을 방지
+    return text[-n:] + text[:-n] if n else text
+
+
+# 테스트 케이스 적용 예시
+data1 = ["abcd", 1]
+result1 = solution(data1)
+print(result1)  # "dabc"
+
+
+# 66
+def solution(data):
+    text = data[0]
+    compressed = []
+    count = 1
+
+    for i in range(1, len(text)):
+        if text[i] == text[i - 1]:
+            count += 1
+        else:
+            compressed.append(text[i - 1] + str(count))
+            count = 1
+    compressed.append(text[-1] + str(count))  # 마지막 문자 처리
+
+    return "".join(compressed)
+
+
+# 테스트 케이스 적용 예시
+data1 = ["aaabbccccdaa"]
+result1 = solution(data1)
+print(result1)  # "a3b2c4d1a2"
+
+
+# 67
+import re
+
+
+def solution(data):
+    s, pattern = data
+    findall_index = []
+    for match in re.finditer(pattern, s):
+        findall_index.append(match.start())
+    return findall_index
