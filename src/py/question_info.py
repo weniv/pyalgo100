@@ -69,5 +69,8 @@ testcase_and_result = [
     {"que_number": 64, "lv": 1, "kinds": "문자열 처리"},
     {"que_number": 65, "lv": 0, "kinds": "문자열 처리"},
     {"que_number": 66, "lv": 1, "kinds": "문자열 처리"},
-    {"que_number": 67, "lv": 1, "kinds": "문자열 처리"}
+    {"que_number": 67, "lv": 1, "kinds": "문자열 처리"},
+    {"que_number": 68, "lv": 1, "kinds": "순열과 조합"},
+    {"que_number": 69, "lv": 1, "kinds": "순열과 조합"},
+    {"que_number": 70, "lv": 1, "kinds": "순열과 조합"}
 ]

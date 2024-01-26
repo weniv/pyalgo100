@@ -1136,3 +1136,115 @@ def solution(data):
     for match in re.finditer(pattern, s):
         findall_index.append(match.start())
     return findall_index
+
+
+# 68
+def solution(numbers):
+    numbers_str = [str(num) for num in numbers]
+    numbers_str.sort(key=lambda x: x * 3, reverse=True)
+    return str(int("".join(numbers_str)))
+
+
+# 테스트 케이스 적용 예시
+numbers1 = [3, 30, 34, 5, 9]
+result1 = solution(numbers1)
+print(result1)  # "9534330"
+
+
+# 68
+# solution([3, 30, 34, 5, 9]) # "9 5 34 3 30"
+
+# 가장 큰 수 순서대로 정렬해서 조합한다
+# 순열과 조합을 이용한다. => buteforce(무차별 대입) => 전수 조사
+# 형평성에 문제 => python으로만 순열 조합 문제가 너무 쉽습니다.
+
+
+# 숫자는 2자리로 제한합니다.
+# "9 5 34 3 30"
+# "9 5 3 30 34"
+
+sorted([3, 30, 34, 5, 9], reverse=True)
+sorted(map(str, [3, 30, 34, 5, 9]), reverse=True)
+
+# 1. 자릿수가 2자리인(N자리) 경우 2자리에 뒷 숫자가 자신보다 큰지 => 만약에 자신보다 크다? => 앞으로 배치합니다. => 양수
+# 2. 자릿수가 2자리인(N자리) 경우 2자리에 뒷 숫자가 자신보다 큰지 => 만약에 자신보다 작다? => 뒤로 배치합니다. => 음수
+# 3. 자릴수가 1자리인 경우 => 우선순위를 0로 둡니다.
+
+
+# 2자리만 반영한 것입니다.
+def 정렬함수(x):
+    if len(x) >= 2:
+        return (x[0], 1 if x[1] > x[0] else -1)
+    else:
+        return (x[0], 0)
+
+
+문자열변환 = map(str, [3, 30, 34, 5, 9])
+
+
+"".join(sorted(문자열변환, key=정렬함수, reverse=True))  # 큰 값이 앞에 오게 됩니다.
+
+####
+import itertools
+
+arr = ["A", "B", "C"]
+순열 = itertools.permutations(arr, 2)
+
+arr = ["A", "B", "C"]
+조합 = itertools.combinations(arr, 2)
+
+list(순열)
+
+####
+순열 = itertools.permutations([3, 30, 34, 5, 9])
+max(list(map(lambda x: "".join([str(i) for i in x]), 순열)))
+
+
+# 69
+def solution(data):
+    numbers, target = data
+    combinations = []
+    found_pairs = set()
+
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if (
+                numbers[i] + numbers[j] == target
+                and (numbers[i], numbers[j]) not in found_pairs
+                and (numbers[j], numbers[i]) not in found_pairs
+            ):
+                combinations.append((numbers[i], numbers[j]))
+                found_pairs.add((numbers[i], numbers[j]))
+
+    combinations.sort()
+    return combinations
+
+
+# 테스트 케이스 적용 예시
+data1 = [[1, 2, 3, 4, 5], 5]
+result1 = solution(data1)
+print(result1)  # [(1, 4), (2, 3)]
+
+
+
+# 70
+from itertools import combinations
+
+
+def solution(data):
+    nums, A, B = data
+    count = 0
+
+    for r in range(1, len(nums) + 1):
+        for combo in combinations(nums, r):
+            if A <= sum(combo) <= B:
+                print(combo)
+                count += 1
+
+    return count
+
+
+# 테스트 케이스 적용 예시
+data1 = [[1, 2, 3, 4, 5], 5, 10]
+result1 = solution(data1)
+print(result1)  # 4
