@@ -1226,7 +1226,6 @@ result1 = solution(data1)
 print(result1)  # [(1, 4), (2, 3)]
 
 
-
 # 70
 from itertools import combinations
 
@@ -1248,3 +1247,94 @@ def solution(data):
 data1 = [[1, 2, 3, 4, 5], 5, 10]
 result1 = solution(data1)
 print(result1)  # 4
+
+
+# 71
+def solution(string):
+    seen = set()
+    result = []
+
+    for char in string:
+        if char not in seen:
+            seen.add(char)
+            result.append(char)
+
+    return "".join(result)
+
+
+def solution(string):
+    seen = []
+    result = []
+
+    for char in string:
+        if char not in seen:
+            seen.append(char)
+            result.append(char)
+
+    return "".join(result)
+
+
+# 테스트 케이스 적용 예시
+string1 = "banana"
+result1 = solution(string1)
+print(result1)  # "ban"
+
+
+# 72
+def solution(data):
+    str1, str2 = data
+    set1 = set(str1)
+    set2 = set(str2)
+    common_chars = sorted(set1.intersection(set2))
+    return common_chars
+
+
+# 테스트 케이스 적용 예시
+str1, str2 = "apple", "plead"
+result = solution(str1, str2)
+print(result)  # ['a', 'e', 'l', 'p']
+
+
+# 73
+def solution(data):
+    str1, str2 = data
+    set1 = set(str1)
+    set2 = set(str2)
+    remaining_chars = sorted(set1 - set2)
+    return remaining_chars
+
+
+# 테스트 케이스 적용 예시
+str1, str2 = "apple", "ple"
+result = solution(str1, str2)
+print(result)  # ['a']
+
+
+# 74
+def solution(data):
+    str1, str2 = data
+    set1 = set(str1)
+    set2 = set(str2)
+    unique_elements = sorted((set1 - set2) | (set2 - set1))
+    return unique_elements
+
+
+# 테스트 케이스 적용 예시
+str1, str2 = "apple", "peer"
+result = solution(str1, str2)
+print(result)  # ['a', 'e', 'l', 'r']
+
+
+# 75
+def solution(data):
+    nums, n, m = data
+    full_set = set(range(n, m + 1))
+    nums_set = set(nums)
+    missing_numbers = sorted(full_set - nums_set)
+    return missing_numbers
+
+
+# 테스트 케이스 적용 예시
+data = [[2, 3, 4], 1, 5]
+result = solution(data)
+print(result)  # [1, 5]
