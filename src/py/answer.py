@@ -1338,3 +1338,35 @@ def solution(data):
 data = [[2, 3, 4], 1, 5]
 result = solution(data)
 print(result)  # [1, 5]
+
+
+# 76
+def solution(data):
+    arr1, arr2 = data
+    merged = []
+    i, j = 0, 0
+
+    # 두 배열의 요소를 비교하며 병합
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            merged.append(arr1[i])
+            i += 1
+        else:
+            merged.append(arr2[j])
+            j += 1
+
+    # 남은 요소들 추가
+    while i < len(arr1):
+        merged.append(arr1[i])
+        i += 1
+    while j < len(arr2):
+        merged.append(arr2[j])
+        j += 1
+
+    return merged
+
+
+# 테스트 케이스 적용 예시
+arr1, arr2 = [1, 3, 5, 7], [2, 4, 6, 8]
+result = solution(arr1, arr2)
+print(result)  # [1, 2, 3, 4, 5, 6, 7, 8]
