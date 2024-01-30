@@ -1370,3 +1370,40 @@ def solution(data):
 arr1, arr2 = [1, 3, 5, 7], [2, 4, 6, 8]
 result = solution(arr1, arr2)
 print(result)  # [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+# 77
+def solution(data):
+    # 좌표의 최대값을 찾아 선분 배열 생성
+    line_array = [0] * 101
+
+    # 각 선분이 지나가는 구간을 True로 표시
+    for line in data:
+        for i in range(line[0], line[1]):
+            line_array[i] += 1
+
+    # 겹치는 선분의 길이 계산
+    overlapping_length = 0
+    for i in line_array:
+        if i >= 2:
+            overlapping_length += 1
+
+    return overlapping_length
+
+
+# 테스트 케이스 적용 예시
+data = [[1, 5], [3, 7], [2, 6]]
+result = solution(data)
+print(result)  # 겹치는 선분의 길이
+
+
+# 78
+def solution(data):
+    line, point = data
+    return line[0] <= point <= line[1]
+
+
+# 테스트 케이스 적용 예시
+data = [[1, 5], 3]
+result = solution(data)
+print(result)  # True

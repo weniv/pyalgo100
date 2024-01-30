@@ -78,5 +78,7 @@ testcase_and_result = [
     {"que_number": 73, "lv": 0, "kinds": "집합"},
     {"que_number": 74, "lv": 1, "kinds": "집합"},
     {"que_number": 75, "lv": 1, "kinds": "집합"},
-    {"que_number": 76, "lv": 1, "kinds": "배열, 병합"}
+    {"que_number": 76, "lv": 1, "kinds": "배열, 병합"},
+    {"que_number": 77, "lv": 1, "kinds": "좌표평면"},
+    {"que_number": 78, "lv": 0, "kinds": "좌표평면"}
 ]
