@@ -1409,9 +1409,9 @@ result = solution(data)
 print(result)  # 겹치는 선분의 길이
 
 
-
 # 79
 # 아직 미해결
+# 최대 직사각형 알고리즘 참고
 def solution(points):
     if len(points) < 4:
         return 0  # 직사각형을 만들 수 없는 경우
@@ -1428,3 +1428,23 @@ def solution(points):
 points = [(5, 5), (6, 6), (7, 7), (8, 8)]
 result = solution(points)
 print(result)  # 0
+
+
+# 80
+def solution(points):
+    max_distance = 0
+
+    for i in range(len(points)):
+        for j in range(i + 1, len(points)):
+            x1, y1 = points[i]
+            x2, y2 = points[j]
+            distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+            max_distance = max(max_distance, distance)
+
+    return int(max_distance)
+
+
+# 테스트 케이스 적용 예시
+points = [(1, 1), (3, 3), (6, 6), (10, 10), (15, 15)]
+result = solution(points)
+print(result)  # 19
