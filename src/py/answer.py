@@ -1374,6 +1374,18 @@ print(result)  # [1, 2, 3, 4, 5, 6, 7, 8]
 
 # 77
 def solution(data):
+    line, point = data
+    return line[0] <= point <= line[1]
+
+
+# 테스트 케이스 적용 예시
+data = [[1, 5], 3]
+result = solution(data)
+print(result)  # True
+
+
+# 78
+def solution(data):
     # 좌표의 최대값을 찾아 선분 배열 생성
     line_array = [0] * 101
 
@@ -1397,13 +1409,22 @@ result = solution(data)
 print(result)  # 겹치는 선분의 길이
 
 
-# 78
-def solution(data):
-    line, point = data
-    return line[0] <= point <= line[1]
+
+# 79
+# 아직 미해결
+def solution(points):
+    if len(points) < 4:
+        return 0  # 직사각형을 만들 수 없는 경우
+
+    max_x = max(points, key=lambda x: x[0])[0]
+    min_x = min(points, key=lambda x: x[0])[0]
+    max_y = max(points, key=lambda x: x[1])[1]
+    min_y = min(points, key=lambda x: x[1])[1]
+
+    return (max_x - min_x) * (max_y - min_y)
 
 
 # 테스트 케이스 적용 예시
-data = [[1, 5], 3]
-result = solution(data)
-print(result)  # True
+points = [(5, 5), (6, 6), (7, 7), (8, 8)]
+result = solution(points)
+print(result)  # 0
