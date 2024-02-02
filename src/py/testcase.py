@@ -1291,5 +1291,31 @@ testcase_and_result = [
             "100",
             "0 1 0 1 0"
         ]
+    },
+    {
+        "que_number": 83,
+        "lv": 1,
+        "kinds": "자료 구조",
+        "testcase": [
+            [
+                {"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},
+                {"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 4},
+                {"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}
+            ],
+            [
+                {"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3},
+                {"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}
+            ],
+            [
+                {"name": "웹 프로그래밍", "type": "전공 필수", "start": "09:00", "end": "10:50", "instructor": "조교수", "credit": 2},
+                {"name": "디지털 디자인", "type": "전공 선택", "start": "11:00", "end": "12:50", "instructor": "김교수", "credit": 2},
+                {"name": "컴파일러", "type": "전공 필수", "start": "11:30", "end": "14:50", "instructor": "박교수", "credit": 3}
+            ]
+        ],
+        "result": [
+            ["알고리즘", "데이터베이스"],
+            ["운영체제", "컴퓨터 네트워크"],
+            ["웹 프로그래밍", "컴파일러"]
+        ]
     }
 ]

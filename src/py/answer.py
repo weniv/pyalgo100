@@ -1509,3 +1509,41 @@ def solution(input_string):
     linked_list = list(reversed(elements))
     return " ".join(map(str, linked_list))
 
+
+def calculate_max_credits(lectures):
+    # 강의를 끝나는 시간 기준으로 정렬
+    sorted_lectures = sorted(lectures, key=lambda x: x['end'])
+    max_credits = 0
+    last_end_time = "00:00"
+
+    for lecture in sorted_lectures:
+        # 이전 강의가 끝난 시간과 현재 강의의 시작 시간을 비교
+        if lecture['start'] >= last_end_time:
+            max_credits += lecture['credit']
+            last_end_time = lecture['end']
+
+    return max_credits
+
+# 테스트 케이스
+lectures_list = [
+    [
+        {"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},
+        {"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 3},
+        {"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}
+    ],
+    [
+        {"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3},
+        {"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}
+    ],
+    [
+        {"name": "소프트웨어 공학", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "조교수", "credit": 3},
+        {"name": "시스템 프로그래밍", "type": "전공 선택", "start": "11:00", "end": "12:30", "instructor": "김교수", "credit": 3},
+        {"name": "머신러닝", "type": "전공 선택", "start": "12:30", "end": "14:00", "instructor": "이교수", "credit": 3},
+        {"name": "네트워크 보안", "type": "전공 필수", "start": "14:30", "end": "16:00", "instructor": "박교수", "credit": 3}
+    ]
+]
+
+for lectures in lectures_list:
+    print(calculate_max_credits(lectures))
+
+
