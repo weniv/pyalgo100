@@ -1448,3 +1448,64 @@ def solution(points):
 points = [(1, 1), (3, 3), (6, 6), (10, 10), (15, 15)]
 result = solution(points)
 print(result)  # 19
+
+# 81
+def solution(nums):
+    # 리스트 길이의 중간 인덱스 계산
+    mid_index = len(nums) // 2
+    # 리스트 길이가 짝수인 경우, 두 번째 중간 노드 반환
+    if len(nums) % 2 == 0:
+        return nums[mid_index]
+    # 리스트 길이가 홀수인 경우, 중간 노드 반환
+    else:
+        return nums[mid_index]
+
+# 테스트 케이스 적용 예시
+print(solution([1, 2, 3, 4, 5]))  # 3
+print(solution([1, 2, 3, 4]))     # 3
+print(solution([7, 10, 13]))      # 10
+print(solution([100]))            # 100
+print(solution([-5, 0, 5, 10, 15, 20]))  # 10
+
+class Node:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev
+
+def list_to_linked_list(elements):
+    head = None
+    for element in reversed(elements):
+        head = Node(element, head)
+    return head
+
+def linked_list_to_string(head):
+    elements = []
+    current = head
+    while current:
+        elements.append(str(current.value))
+        current = current.next
+    return ' '.join(elements)
+
+# 82
+def solution(input_string):
+    elements = list(map(int, input_string.split()))
+    linked_list = list_to_linked_list(elements)
+    reversed_head = reverse_linked_list(linked_list)
+    return linked_list_to_string(reversed_head)
+
+
+def solution(input_string):
+    elements = list(map(int, input_string.split()))
+    linked_list = list(reversed(elements))
+    return " ".join(map(str, linked_list))
+
