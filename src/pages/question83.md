@@ -22,9 +22,9 @@
 
 | 입력 (강의 정보 리스트) | 출력 (선택된 강의의 과목명 리스트) |
 | ---------------------- | ---------------------------------- |
-| [{"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},<br>{"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 3},<br>{"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}] | ["알고리즘", "데이터베이스"] |
-| [{"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3},<br>{"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}] | ["운영체제", "컴퓨터 네트워크"] |
-| [{"name": "웹 프로그래밍", "type": "전공 필수", "start": "09:00", "end": "10:50", "instructor": "조교수", "credit": 2},<br>{"name": "디지털 디자인", "type": "전공 선택", "start": "11:00", "end": "12:50", "instructor": "김교수", "credit": 2},<br>{"name": "컴파일러", "type": "전공 필수", "start": "13:00", "end": "14:50", "instructor": "박교수", "credit": 3}] | ["웹 프로그래밍", "디지털 디자인", "컴파일러"] |
+| [{"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},{"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 3}, {"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}] | ["알고리즘", "데이터베이스"] |
+| [{"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3}, {"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}] | ["운영체제", "컴퓨터 네트워크"] |
+| [{"name": "웹 프로그래밍", "type": "전공 필수", "start": "09:00", "end": "10:50", "instructor": "조교수", "credit": 2}, {"name": "디지털 디자인", "type": "전공 선택", "start": "11:00", "end": "12:50", "instructor": "김교수", "credit": 2}, {"name": "컴파일러", "type": "전공 필수", "start": "13:00", "end": "14:50", "instructor": "박교수", "credit": 3}] | ["웹 프로그래밍", "디지털 디자인", "컴파일러"] |
 
 ---
 

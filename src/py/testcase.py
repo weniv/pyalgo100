@@ -145,22 +145,46 @@ testcase_and_result = [
         "kinds": "정렬",
         "testcase": [
             [
-                ["제주시 A동 한라산길 61", "제주시 B동 백록담길 63", "제주시 C동 사라봉길 31"],
+                [
+                    "제주시 A동 한라산길 61",
+                    "제주시 B동 백록담길 63",
+                    "제주시 C동 사라봉길 31",
+                ],
                 {"A동": 63007, "B동": 63010, "C동": 63002},
             ],
             [
-                ["제주시 E동 한라산길 11", "제주시 D동 한라산길 101", "제주시 F동 한라산길 21"],
+                [
+                    "제주시 E동 한라산길 11",
+                    "제주시 D동 한라산길 101",
+                    "제주시 F동 한라산길 21",
+                ],
                 {"E동": 63107, "D동": 63310, "F동": 63032},
             ],
             [
-                ["제주시 AE동 한라산길 61", "제주시 FE동 백록담길 63", "제주시 BE동 사라봉길 31"],
+                [
+                    "제주시 AE동 한라산길 61",
+                    "제주시 FE동 백록담길 63",
+                    "제주시 BE동 사라봉길 31",
+                ],
                 {"AE동": 63111, "FE동": 63132, "BE동": 63337},
             ],
         ],
         "result": [
-            ["제주시 C동 사라봉길 31", "제주시 A동 한라산길 61", "제주시 B동 백록담길 63"],
-            ["제주시 F동 한라산길 21", "제주시 E동 한라산길 11", "제주시 D동 한라산길 101"],
-            ["제주시 AE동 한라산길 61", "제주시 FE동 백록담길 63", "제주시 BE동 사라봉길 31"],
+            [
+                "제주시 C동 사라봉길 31",
+                "제주시 A동 한라산길 61",
+                "제주시 B동 백록담길 63",
+            ],
+            [
+                "제주시 F동 한라산길 21",
+                "제주시 E동 한라산길 11",
+                "제주시 D동 한라산길 101",
+            ],
+            [
+                "제주시 AE동 한라산길 61",
+                "제주시 FE동 백록담길 63",
+                "제주시 BE동 사라봉길 31",
+            ],
         ],
     },
     {
@@ -550,7 +574,11 @@ testcase_and_result = [
         "que_number": 37,
         "lv": 0,
         "kinds": "정규표현식",
-        "testcase": ["[08:55:45] 사용자 로그인", "[13:01:02] 데이터베이스 접근", "[23:59:59] 시스템 종료"],
+        "testcase": [
+            "[08:55:45] 사용자 로그인",
+            "[13:01:02] 데이터베이스 접근",
+            "[23:59:59] 시스템 종료",
+        ],
         "result": [
             {"time": "08:55:45", "message": "사용자 로그인"},
             {"time": "13:01:02", "message": "데이터베이스 접근"},
@@ -598,7 +626,11 @@ testcase_and_result = [
         "que_number": 40,
         "lv": 0,
         "kinds": "정규표현식",
-        "testcase": ["가격은 3,500원입니다.", "오늘은 2023년 3월 5일", "문자만 있는 경우"],
+        "testcase": [
+            "가격은 3,500원입니다.",
+            "오늘은 2023년 3월 5일",
+            "문자만 있는 경우",
+        ],
         "result": ["3500", "202335", ""],
     },
     {
@@ -1263,34 +1295,16 @@ testcase_and_result = [
             [1, 2, 3, 4],
             [7, 10, 13],
             [100],
-            [-5, 0, 5, 10, 15, 20]
+            [-5, 0, 5, 10, 15, 20],
         ],
-        "result": [
-            3,
-            3,
-            10,
-            100,
-            10
-        ]
+        "result": [3, 3, 10, 100, 10],
     },
     {
         "que_number": 82,
         "lv": 1,
         "kinds": "자료 구조",
-        "testcase": [
-            "1 2 3 4 5",
-            "9 8 7",
-            "15 20 25",
-            "100",
-            "0 1 0 1 0"
-        ],
-        "result": [
-            "5 4 3 2 1",
-            "7 8 9",
-            "25 20 15",
-            "100",
-            "0 1 0 1 0"
-        ]
+        "testcase": ["1 2 3 4 5", "9 8 7", "15 20 25", "100", "0 1 0 1 0"],
+        "result": ["5 4 3 2 1", "7 8 9", "25 20 15", "100", "0 1 0 1 0"],
     },
     {
         "que_number": 83,
@@ -1298,24 +1312,163 @@ testcase_and_result = [
         "kinds": "자료 구조",
         "testcase": [
             [
-                {"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},
-                {"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 4},
-                {"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}
+                {
+                    "name": "알고리즘",
+                    "type": "전공 필수",
+                    "start": "09:00",
+                    "end": "10:30",
+                    "instructor": "이교수",
+                    "credit": 3,
+                },
+                {
+                    "name": "데이터베이스",
+                    "type": "전공 필수",
+                    "start": "10:30",
+                    "end": "12:00",
+                    "instructor": "한교수",
+                    "credit": 4,
+                },
+                {
+                    "name": "인공지능",
+                    "type": "전공 선택",
+                    "start": "10:45",
+                    "end": "12:15",
+                    "instructor": "박교수",
+                    "credit": 3,
+                },
             ],
             [
-                {"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3},
-                {"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}
+                {
+                    "name": "운영체제",
+                    "type": "전공 필수",
+                    "start": "13:00",
+                    "end": "14:30",
+                    "instructor": "최교수",
+                    "credit": 3,
+                },
+                {
+                    "name": "컴퓨터 네트워크",
+                    "type": "전공 선택",
+                    "start": "14:30",
+                    "end": "16:00",
+                    "instructor": "정교수",
+                    "credit": 3,
+                },
             ],
             [
-                {"name": "웹 프로그래밍", "type": "전공 필수", "start": "09:00", "end": "10:50", "instructor": "조교수", "credit": 2},
-                {"name": "디지털 디자인", "type": "전공 선택", "start": "11:00", "end": "12:50", "instructor": "김교수", "credit": 2},
-                {"name": "컴파일러", "type": "전공 필수", "start": "11:30", "end": "14:50", "instructor": "박교수", "credit": 3}
-            ]
+                {
+                    "name": "웹 프로그래밍",
+                    "type": "전공 필수",
+                    "start": "09:00",
+                    "end": "10:50",
+                    "instructor": "조교수",
+                    "credit": 2,
+                },
+                {
+                    "name": "디지털 디자인",
+                    "type": "전공 선택",
+                    "start": "11:00",
+                    "end": "12:50",
+                    "instructor": "김교수",
+                    "credit": 2,
+                },
+                {
+                    "name": "컴파일러",
+                    "type": "전공 필수",
+                    "start": "11:30",
+                    "end": "14:50",
+                    "instructor": "박교수",
+                    "credit": 3,
+                },
+            ],
         ],
         "result": [
             ["알고리즘", "데이터베이스"],
             ["운영체제", "컴퓨터 네트워크"],
-            ["웹 프로그래밍", "컴파일러"]
-        ]
-    }
+            ["웹 프로그래밍", "컴파일러"],
+        ],
+    },
+    {
+        "que_number": 84,
+        "lv": 1,
+        "kinds": "자료 구조",
+        "testcase": [
+            ["Flight A,07:00,09:30", "Flight B,06:30,09:00", "Flight C,07:30,10:00"],
+            ["Flight D,08:00,10:00", "Flight E,08:30,10:30", "Flight F,07:45,10:15"],
+            ["Flight G,09:00,11:00", "Flight H,09:30,11:30", "Flight I,08:00,10:00"],
+        ],
+        "result": ["Flight B", "Flight D", "Flight I"],
+    },
+    {
+        "que_number": 85,
+        "lv": 1,
+        "kinds": "자료 구조",
+        "testcase": [
+            [
+                [
+                    {
+                        "name": "Airport A",
+                        "distance": 500,
+                        "treatableDiseases": ["Disease A", "Disease B"],
+                    },
+                    {
+                        "name": "Airport B",
+                        "distance": 300,
+                        "treatableDiseases": ["Disease C"],
+                    },
+                    {
+                        "name": "Airport C",
+                        "distance": 400,
+                        "treatableDiseases": ["Disease B", "Disease C"],
+                    },
+                ],
+                ["Disease A", "Disease C"],
+            ],
+            [
+                [
+                    {
+                        "name": "Airport D",
+                        "distance": 200,
+                        "treatableDiseases": ["Disease D", "Disease E"],
+                    },
+                    {
+                        "name": "Airport E",
+                        "distance": 600,
+                        "treatableDiseases": ["Disease F"],
+                    },
+                    {
+                        "name": "Airport F",
+                        "distance": 400,
+                        "treatableDiseases": ["Disease D", "Disease F"],
+                    },
+                ],
+                ["Disease D", "Disease F"],
+            ],
+            [
+                [
+                    {
+                        "name": "Airport G",
+                        "distance": 250,
+                        "treatableDiseases": ["Disease G", "Disease H"],
+                    },
+                    {
+                        "name": "Airport H",
+                        "distance": 350,
+                        "treatableDiseases": ["Disease I"],
+                    },
+                    {
+                        "name": "Airport I",
+                        "distance": 450,
+                        "treatableDiseases": ["Disease G", "Disease I"],
+                    },
+                ],
+                ["Disease G", "Disease I"],
+            ],
+        ],
+        "result": [
+            ["Airport B", "Airport A"],
+            ["Airport F"],
+            ["Airport I"],
+        ],
+    },
 ]

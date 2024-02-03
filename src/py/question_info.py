@@ -85,5 +85,7 @@ testcase_and_result = [
     {"que_number": 80, "lv": 1, "kinds": "좌표평면"},
     {"que_number": 81, "lv": 0, "kinds": "자료 구조"},
     {"que_number": 82, "lv": 1, "kinds": "자료 구조"},
-    {"que_number": 83, "lv": 1, "kinds": "자료 구조"}
+    {"que_number": 83, "lv": 1, "kinds": "자료 구조"},
+    {"que_number": 84, "lv": 1, "kinds": "자료 구조"},
+    {"que_number": 85, "lv": 1, "kinds": "자료 구조"}
 ]

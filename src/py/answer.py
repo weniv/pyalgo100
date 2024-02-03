@@ -1449,6 +1449,7 @@ points = [(1, 1), (3, 3), (6, 6), (10, 10), (15, 15)]
 result = solution(points)
 print(result)  # 19
 
+
 # 81
 def solution(nums):
     # 리스트 길이의 중간 인덱스 계산
@@ -1460,17 +1461,20 @@ def solution(nums):
     else:
         return nums[mid_index]
 
+
 # 테스트 케이스 적용 예시
 print(solution([1, 2, 3, 4, 5]))  # 3
-print(solution([1, 2, 3, 4]))     # 3
-print(solution([7, 10, 13]))      # 10
-print(solution([100]))            # 100
+print(solution([1, 2, 3, 4]))  # 3
+print(solution([7, 10, 13]))  # 10
+print(solution([100]))  # 100
 print(solution([-5, 0, 5, 10, 15, 20]))  # 10
+
 
 class Node:
     def __init__(self, value=0, next=None):
         self.value = value
         self.next = next
+
 
 def reverse_linked_list(head):
     prev = None
@@ -1482,11 +1486,13 @@ def reverse_linked_list(head):
         current = next_node
     return prev
 
+
 def list_to_linked_list(elements):
     head = None
     for element in reversed(elements):
         head = Node(element, head)
     return head
+
 
 def linked_list_to_string(head):
     elements = []
@@ -1494,7 +1500,8 @@ def linked_list_to_string(head):
     while current:
         elements.append(str(current.value))
         current = current.next
-    return ' '.join(elements)
+    return " ".join(elements)
+
 
 # 82
 def solution(input_string):
@@ -1512,38 +1519,170 @@ def solution(input_string):
 
 def calculate_max_credits(lectures):
     # 강의를 끝나는 시간 기준으로 정렬
-    sorted_lectures = sorted(lectures, key=lambda x: x['end'])
+    sorted_lectures = sorted(lectures, key=lambda x: x["end"])
     max_credits = 0
     last_end_time = "00:00"
 
     for lecture in sorted_lectures:
         # 이전 강의가 끝난 시간과 현재 강의의 시작 시간을 비교
-        if lecture['start'] >= last_end_time:
-            max_credits += lecture['credit']
-            last_end_time = lecture['end']
+        if lecture["start"] >= last_end_time:
+            max_credits += lecture["credit"]
+            last_end_time = lecture["end"]
 
     return max_credits
+
 
 # 테스트 케이스
 lectures_list = [
     [
-        {"name": "알고리즘", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "이교수", "credit": 3},
-        {"name": "데이터베이스", "type": "전공 필수", "start": "10:30", "end": "12:00", "instructor": "한교수", "credit": 3},
-        {"name": "인공지능", "type": "전공 선택", "start": "10:45", "end": "12:15", "instructor": "박교수", "credit": 3}
+        {
+            "name": "알고리즘",
+            "type": "전공 필수",
+            "start": "09:00",
+            "end": "10:30",
+            "instructor": "이교수",
+            "credit": 3,
+        },
+        {
+            "name": "데이터베이스",
+            "type": "전공 필수",
+            "start": "10:30",
+            "end": "12:00",
+            "instructor": "한교수",
+            "credit": 3,
+        },
+        {
+            "name": "인공지능",
+            "type": "전공 선택",
+            "start": "10:45",
+            "end": "12:15",
+            "instructor": "박교수",
+            "credit": 3,
+        },
     ],
     [
-        {"name": "운영체제", "type": "전공 필수", "start": "13:00", "end": "14:30", "instructor": "최교수", "credit": 3},
-        {"name": "컴퓨터 네트워크", "type": "전공 선택", "start": "14:30", "end": "16:00", "instructor": "정교수", "credit": 3}
+        {
+            "name": "운영체제",
+            "type": "전공 필수",
+            "start": "13:00",
+            "end": "14:30",
+            "instructor": "최교수",
+            "credit": 3,
+        },
+        {
+            "name": "컴퓨터 네트워크",
+            "type": "전공 선택",
+            "start": "14:30",
+            "end": "16:00",
+            "instructor": "정교수",
+            "credit": 3,
+        },
     ],
     [
-        {"name": "소프트웨어 공학", "type": "전공 필수", "start": "09:00", "end": "10:30", "instructor": "조교수", "credit": 3},
-        {"name": "시스템 프로그래밍", "type": "전공 선택", "start": "11:00", "end": "12:30", "instructor": "김교수", "credit": 3},
-        {"name": "머신러닝", "type": "전공 선택", "start": "12:30", "end": "14:00", "instructor": "이교수", "credit": 3},
-        {"name": "네트워크 보안", "type": "전공 필수", "start": "14:30", "end": "16:00", "instructor": "박교수", "credit": 3}
-    ]
+        {
+            "name": "소프트웨어 공학",
+            "type": "전공 필수",
+            "start": "09:00",
+            "end": "10:30",
+            "instructor": "조교수",
+            "credit": 3,
+        },
+        {
+            "name": "시스템 프로그래밍",
+            "type": "전공 선택",
+            "start": "11:00",
+            "end": "12:30",
+            "instructor": "김교수",
+            "credit": 3,
+        },
+        {
+            "name": "머신러닝",
+            "type": "전공 선택",
+            "start": "12:30",
+            "end": "14:00",
+            "instructor": "이교수",
+            "credit": 3,
+        },
+        {
+            "name": "네트워크 보안",
+            "type": "전공 필수",
+            "start": "14:30",
+            "end": "16:00",
+            "instructor": "박교수",
+            "credit": 3,
+        },
+    ],
 ]
 
 for lectures in lectures_list:
     print(calculate_max_credits(lectures))
 
 
+def solution(flights):
+    class Flight:
+        def __init__(self, name, start, end):
+            self.name = name
+            self.start = start
+            self.end = end
+
+        def __lt__(self, other):
+            return self.end < other.end
+
+    # 문자열 정보를 기반으로 Flight 인스턴스 리스트 생성
+    flight_objects = []
+    for flight in flights:
+        name, start, end = flight.split(",")
+        flight_objects.append(Flight(name, start, end))
+
+    # 도착 시간 기준으로 항공편 정렬
+    flight_objects.sort()
+
+    # 가장 빠른 항공편의 이름 반환
+    return flight_objects[0].name
+
+
+# 테스트 케이스 실행 예시
+flights1 = ["Flight A,07:00,09:30", "Flight B,06:30,09:00", "Flight C,07:30,10:00"]
+flights2 = ["Flight D,08:00,10:00", "Flight E,08:30,10:30", "Flight F,07:45,10:15"]
+
+print(solution(flights1))  # "Flight B"
+print(solution(flights2))  # "Flight D"
+
+
+# 85
+# 다시 풀어야 함
+# 문제도 문자열로 처리하게 안에서 import json을 하게 하는 편이 좋을 것 같음
+def solution(data):
+    airportData, patientData = data
+    # 공항 데이터를 거리에 따라 정렬
+    sorted_airports = sorted(airportData, key=lambda x: x["distance"])
+
+    # 환자를 치료할 수 있는 공항 찾기
+    treatable_airports = []
+    for disease in patientData:
+        for airport in sorted_airports:
+            if disease in airport["treatableDiseases"]:
+                if airport["name"] not in treatable_airports:
+                    treatable_airports.append(airport["name"])
+                break  # 해당 질병을 치료할 수 있는 첫 번째 공항을 찾으면 중단
+
+    return treatable_airports
+
+
+# 테스트 케이스 실행 예시
+airportData = [
+    {
+        "name": "Airport A",
+        "distance": 500,
+        "treatableDiseases": ["Disease A", "Disease B"],
+    },
+    {"name": "Airport B", "distance": 300, "treatableDiseases": ["Disease C"]},
+    {
+        "name": "Airport C",
+        "distance": 400,
+        "treatableDiseases": ["Disease B", "Disease C"],
+    },
+]
+patientData = ["Disease A", "Disease C"]
+
+print(solution(airportData, patientData))
