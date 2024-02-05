@@ -1471,4 +1471,11 @@ testcase_and_result = [
             ["Airport I"],
         ],
     },
+    {
+        "que_number": 86,
+        "lv": 1,
+        "kinds": "자료 구조",
+        "testcase": ["aabbccdd", "banana", "mississippi", "frequency"],
+        "result": ["abcd", "anb", "ispm", "ecfnqruy"],
+    },
 ]

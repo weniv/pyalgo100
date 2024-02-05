@@ -1686,3 +1686,40 @@ airportData = [
 patientData = ["Disease A", "Disease C"]
 
 print(solution(airportData, patientData))
+
+
+# 86
+def solution(s):
+    # 알파벳의 출현 빈도를 계산
+    frequency = {}
+    for char in s:
+        if char.isalpha():  # 알파벳인 경우에만 처리
+            frequency[char] = frequency.get(char, 0) + 1
+
+    # 빈도수에 따라 알파벳을 정렬(빈도수가 같으면 알파벳 순으로 정렬)
+    sorted_alphabets = sorted(frequency.items(), key=lambda x: (-x[1], x[0]))
+
+    # 결과 문자열 생성
+    result = "".join([char for char, _ in sorted_alphabets])
+    return result
+
+
+# 테스트 케이스 실행
+print(solution("aabbccdd"))  # abcd
+print(solution("banana"))  # anb
+print(solution("mississippi"))  # ismp
+print(solution("frequency"))  # enfqrucy
+
+
+def solution(s):
+    from collections import Counter
+
+    # 알파벳의 출현 빈도를 계산
+    frequency = Counter(s)
+
+    # 빈도수에 따라 알파벳을 정렬(빈도수가 같으면 알파벳 순으로 정렬)
+    sorted_alphabets = sorted(frequency.items(), key=lambda x: (-x[1], x[0]))
+
+    # 결과 문자열 생성
+    result = "".join([char for char, _ in sorted_alphabets])
+    return result
