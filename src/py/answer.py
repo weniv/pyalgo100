@@ -1723,3 +1723,26 @@ def solution(s):
     # 결과 문자열 생성
     result = "".join([char for char, _ in sorted_alphabets])
     return result
+
+
+# 87
+def solution(data):
+    # data는 (a, b) 형태의 튜플입니다.
+    a, b = data  # 튜플을 사용하여 a와 b의 값을 교환합니다.
+    a, b = b, a  # 교환 작업
+    return a, b  # 교환된 값을 반환합니다.
+
+
+# 88
+def solution(data):
+    units = ["", "십", "백", "천"]
+    nums = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+    result = ""
+    str_data = str(data)[::-1]
+
+    for i, digit in enumerate(str_data):
+        num = int(digit)
+        if num > 0:
+            result = nums[num] + units[i] + result
+
+    return result

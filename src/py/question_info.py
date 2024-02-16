@@ -1,5 +1,7 @@
 # notebook output을 위한 파일입니다.
+
 # json 형식으로 저장되어 있습니다. formatter를 비활성화 하고 저장해주세요.
+
 testcase_and_result = [
     {"que_number": 0, "lv": "", "kinds": "", "testcase": "", "result": ""},
     {"que_number": 1, "lv": 0, "kinds": "요구사항 구현"},
@@ -88,5 +90,7 @@ testcase_and_result = [
     {"que_number": 83, "lv": 1, "kinds": "자료 구조"},
     {"que_number": 84, "lv": 1, "kinds": "자료 구조"},
     {"que_number": 85, "lv": 1, "kinds": "자료 구조"},
-    {"que_number": 86, "lv": 0, "kinds": "자료 구조"}
+    {"que_number": 86, "lv": 0, "kinds": "자료 구조"},
+    {"que_number": 87, "lv": 0, "kinds": "숫자 교환"},
+    {"que_number": 88, "lv": 0, "kinds": "숫자 변환"}
 ]

@@ -1478,4 +1478,18 @@ testcase_and_result = [
         "testcase": ["aabbccdd", "banana", "mississippi", "frequency"],
         "result": ["abcd", "anb", "ispm", "ecfnqruy"],
     },
+    {
+        "que_number": 87,
+        "lv": 0,
+        "kinds": "숫자 교환",
+        "testcase": [(3, 5), (-2, 4), (100, 200)],
+        "result": [(5, 3), (4, -2), (200, 100)],
+    },
+    {
+        "que_number": 88,
+        "lv": 0,
+        "kinds": "숫자 변환",
+        "testcase": [123, 45, 1001, 2020, 100],
+        "result": ["일백이십삼", "사십오", "일천일", "이천이십", "일백"],
+    },
 ]
