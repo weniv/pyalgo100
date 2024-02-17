@@ -355,6 +355,7 @@ def solution(data):
 
 
 # 29
+# xor 연산은 같지 않은 비트를 1로 만들어주는 연산입니다.
 def solution(nums):
     result = 0
     for num in nums:
