@@ -92,5 +92,7 @@ testcase_and_result = [
     {"que_number": 85, "lv": 1, "kinds": "자료 구조"},
     {"que_number": 86, "lv": 0, "kinds": "자료 구조"},
     {"que_number": 87, "lv": 0, "kinds": "숫자 교환"},
-    {"que_number": 88, "lv": 0, "kinds": "숫자 변환"}
+    {"que_number": 88, "lv": 0, "kinds": "숫자 변환"},
+    {"que_number": 89, "lv": 2, "kinds": "선형대수"},
+    {"que_number": 90, "lv": 0, "kinds": "기하학"}
 ]

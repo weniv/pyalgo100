@@ -1,3 +1,6 @@
+## 해당 정답은 정확하지 않은 정답일 수 있습니다. 추후 주피터 노트북을 함께 올리도록 하겠습니다.
+
+
 # 1
 def solution(data):
     return sum(filter(lambda x: x % 2, data))
@@ -1746,3 +1749,68 @@ def solution(data):
             result = nums[num] + units[i] + result
 
     return result
+
+
+# 89
+def solution(data):
+    # 두 선분의 좌표를 분해합니다.
+    line1, line2 = data
+    (x1, y1), (x2, y2) = line1
+    (x3, y3), (x4, y4) = line2
+
+    # 선분 1의 모든 점을 순회하며 선분 2와 겹치는 점을 찾습니다.
+    for x in range(min(x1, x2), max(x1, x2) + 1):
+        for y in range(min(y1, y2), max(y1, y2) + 1):
+            if (
+                x >= min(x3, x4)
+                and x <= max(x3, x4)
+                and y >= min(y3, y4)
+                and y <= max(y3, y4)
+            ):
+                # 선분 2에 속하는 점 (x, y)를 찾으면 반환합니다.
+                return (x, y)
+
+    # 겹치는 점이 없으면 (0, 0)을 반환합니다.
+    return (0, 0)
+
+
+def solution(line1, line2):
+    # 선분의 좌표를 추출
+    (x1, y1), (x2, y2) = line1
+    (x3, y3), (x4, y4) = line2
+
+    # 각 선분을 이루는 모든 점의 집합 생성
+    points_line1 = set()
+    points_line2 = set()
+
+    # 선분 1의 모든 점 생성
+    for x in range(min(x1, x2), max(x1, x2) + 1):
+        for y in range(min(y1, y2), max(y1, y2) + 1):
+            points_line1.add((x, y))
+
+    # 선분 2의 모든 점 생성
+    for x in range(min(x3, x4), max(x3, x4) + 1):
+        for y in range(min(y3, y4), max(y3, y4) + 1):
+            points_line2.add((x, y))
+
+    # 두 선분이 겹치는 점 찾기
+    intersect_points = points_line1.intersection(points_line2)
+
+    # 겹치는 점 반환 (단, 정확히 하나의 점만 겹칠 경우)
+    if len(intersect_points) == 1:
+        return intersect_points.pop()
+    else:
+        return (0, 0)
+
+
+# 테스트 케이스
+line1 = ((1, 1), (4, 4))
+line2 = ((2, 2), (5, 3))
+print(solution(line1, line2))
+
+
+# 90
+def solution(data):
+    a, b, c = data
+    # 피타고라스 정리에 따라 a^2 + b^2 = c^2 인지 확인
+    return a**2 + b**2 == c**2
