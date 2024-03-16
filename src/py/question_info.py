@@ -94,5 +94,15 @@ testcase_and_result = [
     {"que_number": 87, "lv": 0, "kinds": "숫자 교환"},
     {"que_number": 88, "lv": 0, "kinds": "숫자 변환"},
     {"que_number": 89, "lv": 2, "kinds": "선형대수"},
-    {"que_number": 90, "lv": 0, "kinds": "기하학"}
+    {"que_number": 90, "lv": 0, "kinds": "기하학"},
+    {"que_number": 91, "lv": 0, "kinds": "재귀"},
+    {"que_number": 92, "lv": 0, "kinds": "재귀"},
+    {"que_number": 93, "lv": 0, "kinds": "재귀"},
+    {"que_number": 94, "lv": 0, "kinds": "재귀"},
+    {"que_number": 95, "lv": 0, "kinds": "재귀"},
+    {"que_number": 96, "lv": 0, "kinds": "재귀"},
+    {"que_number": 97, "lv": 0, "kinds": "재귀"},
+    {"que_number": 98, "lv": 2, "kinds": "백트래킹"},
+    {"que_number": 99, "lv": 1, "kinds": "백트래킹"},
+    {"que_number": 100, "lv": 1, "kinds": "문자열"}
 ]

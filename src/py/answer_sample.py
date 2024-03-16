@@ -1820,3 +1820,116 @@ def solution(data):
     a, b, c = data
     # 피타고라스 정리에 따라 a^2 + b^2 = c^2 인지 확인
     return a**2 + b**2 == c**2
+
+
+# 91
+def solution(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * solution(n - 1)
+
+
+# 92
+def solution(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return solution(n - 1) + solution(n - 2)
+
+
+# 93
+def solution(nums):
+    if len(nums) == 1:
+        return nums[0]
+    else:
+        return nums[0] + solution(nums[1:])
+
+
+# 94
+def solution(data):
+    a, b = data
+    if b == 0:
+        return a
+    else:
+        return solution([b, a % b])
+
+
+# solution(24, 18)
+# = solution(18, 24 % 18)
+# = solution(18, 6)
+# = solution(6, 18 % 6)
+# = solution(6, 0)
+# = 6
+
+
+# 95
+def solution(s):
+    if len(s) <= 1:
+        return s
+    else:
+        return solution(s[1:]) + s[0]
+
+
+# 96
+def solution(num):
+    if num < 1000:
+        return str(num)
+    else:
+        return solution(num // 1000) + "," + str(num % 1000).zfill(3)
+
+
+# 97
+def solution(n):
+    if n == 0:
+        return "0"
+    elif n == 1:
+        return "1"
+    else:
+        return solution(n // 2) + str(n % 2)
+    
+
+# solution(10)
+# = solution(5) + "0"
+# = (solution(2) + "1") + "0"
+# = ((solution(1) + "0") + "1") + "0"
+# = (("1" + "0") + "1") + "0"
+# = "1010"
+    
+# 99
+def solution(data):
+    nums, target = data
+    def backtrack(index, curr_sum):
+        if curr_sum == target:
+            count[0] += 1
+            return
+        if curr_sum > target or index == len(nums):
+            return
+        
+        # 현재 원소를 선택하는 경우
+        backtrack(index + 1, curr_sum + nums[index])
+        
+        # 현재 원소를 선택하지 않는 경우
+        backtrack(index + 1, curr_sum)
+    
+    count = [0]
+    backtrack(0, 0)
+    return count[0]
+
+# 100
+def solution(s):
+    result = ""
+    
+    for i in range(len(s)):
+        if s[i].isalpha():
+            char = s[i]
+            count = ""
+            j = i + 1
+            while j < len(s) and s[j].isdigit():
+                count += s[j]
+                j += 1
+            result += char * int(count)
+    
+    return result
