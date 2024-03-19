@@ -21,9 +21,9 @@
 
 |   입력    | 출력 |
 | --------- | ------ |
-| {'AX21': 'Moby Dick', 'BX32': '1984', 'CX14': 'To Kill a Mockingbird'} | ['To Kill a Mockingbird', 'Moby Dick', '1984'] |
+| {'AX21': 'Moby Dick', 'BX32': '1984', 'CX14': 'To Kill a Mockingbird'} | ['Moby Dick', '1984', 'To Kill a Mockingbird'] |
 
 ---
 
 ## 입출력 설명
-입력된 딕셔너리에 따르면, 'AX21' 위치에는 'Moby Dick', 'BX32' 위치에는 '1984', 'CX14' 위치에는 'To Kill a Mockingbird' 책이 있습니다. 위치 코드를 사전순으로 정렬하면 'AX21', 'BX32', 'CX14' 순이 되므로, 결과는 ['To Kill a Mockingbird', 'Moby Dick', '1984'] 순으로 정렬됩니다.
+입력된 딕셔너리에 따르면, 'AX21' 위치에는 'Moby Dick', 'BX32' 위치에는 '1984', 'CX14' 위치에는 'To Kill a Mockingbird' 책이 있습니다. 위치 코드를 사전순으로 정렬하면 'AX21', 'BX32', 'CX14' 순이 되므로, 결과는 ['Moby Dick', '1984', 'To Kill a Mockingbird'] 순으로 정렬됩니다.
