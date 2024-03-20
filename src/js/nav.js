@@ -16,7 +16,9 @@ const state = {
 
 const toggleActiveState = () => {
   state.isActive = !state.isActive;
-  const imgSrc = state.isActive ? "src/img/close.webp" : "src/img/hamburger-btn.webp";
+  const imgSrc = state.isActive
+    ? "src/img/close.webp"
+    : "src/img/hamburger-btn.webp";
   const imgAlt = state.isActive ? "메뉴 닫기" : "메뉴 열기";
 
   elements.icon.src = imgSrc;
@@ -32,7 +34,7 @@ const handleCloseQuestions = () => {
 
 const handleOpenQuestions = () => {
   if (elements.menuContainer.classList.contains("active")) {
-      handleCloseMenu();
+    handleCloseMenu();
   }
 
   elements.container.classList.add("menu-on");
@@ -43,9 +45,9 @@ const handleOpenQuestions = () => {
 
 const handleToggleQuestions = () => {
   if (elements.container.classList.contains("menu-on")) {
-      handleCloseQuestions();
+    handleCloseQuestions();
   } else {
-      handleOpenQuestions();
+    handleOpenQuestions();
   }
 };
 
@@ -54,15 +56,15 @@ const handleToggleMenu = () => {
   toggleActiveState();
 
   if (state.isActive) {
-      elements.icon.classList.add("close");
-      elements.menuContainer.classList.add("active");
+    elements.icon.classList.add("close");
+    elements.menuContainer.classList.add("active");
   } else {
-      elements.icon.classList.remove("close");
-      elements.menuContainer.classList.remove("active");
+    elements.icon.classList.remove("close");
+    elements.menuContainer.classList.remove("active");
   }
 
   if (elements.menuContainer.classList.contains("active") && state.isMobile) {
-      handleCloseQuestions();
+    handleCloseQuestions();
   }
 };
 
@@ -77,14 +79,14 @@ const checkMobile = () => {
   const winWidth = window.innerWidth;
 
   if (winWidth > 1024) {
-      state.isMobile = false;
-      elements.menuContainer.classList.remove("is-active");
+    state.isMobile = false;
+    elements.menuContainer.classList.remove("is-active");
   } else if (winWidth >= 900) {
-      handleCloseMenu();
-      state.isMobile = true;
+    handleCloseMenu();
+    state.isMobile = true;
   } else {
-      handleCloseQuestions();
-      state.isMobile = true;
+    handleCloseQuestions();
+    state.isMobile = true;
   }
 };
 
@@ -92,21 +94,25 @@ const handleResizeWidth = () => {
   let timer = null;
   clearTimeout(timer);
   timer = setTimeout(() => {
-      checkMobile();
+    checkMobile();
   }, 300);
 };
 
 const handleCloseMobileQuestions = (e) => {
   const check =
-      Boolean(e.target.closest("nav")) || Boolean(e.target.closest("header"));
-  if (state.isMobile && elements.container.classList.contains("menu-on") && !check) {
-      handleCloseQuestions();
+    Boolean(e.target.closest("nav")) || Boolean(e.target.closest("header"));
+  if (
+    state.isMobile &&
+    elements.container.classList.contains("menu-on") &&
+    !check
+  ) {
+    handleCloseQuestions();
   }
 };
 
 const handleClickOutside = (e) => {
   if (!elements.menuContainer.contains(e.target)) {
-      handleCloseMenu();
+    handleCloseMenu();
   }
 };
 
@@ -117,3 +123,88 @@ window.addEventListener("resize", handleResizeWidth);
 
 elements.btnMenu.addEventListener("click", handleToggleMenu);
 elements.main.addEventListener("click", handleClickOutside);
+
+// 인증서
+const $certifBtn = document.querySelector(".certif-btn");
+$certifBtn.addEventListener("click", () => {
+  checkCertif();
+});
+function checkCertif() {
+  // 점수 체크
+  let score = 0;
+  for (let i = 1; i <= 100; i++) {
+    if (localStorage.getItem(`${i}_check`) === "통과") {
+      score++;
+    }
+  }
+
+  // 진행률 표시
+  const $progress = document.querySelector(".certif-progress");
+  const $progressBar = document.querySelector(".certif-progress-inner");
+  //width가 아닌 transform으로 변경
+  $progressBar.style.transform = `scaleX(${score / 100})`;
+  $progressBar.style.transformOrigin = "left";
+
+  // 인증서 날짜
+  if (score >= 100) {
+    if (!localStorage.getItem("certif-date")) {
+      const current = new Date();
+      const currentTime = `${current.getFullYear()}.${(current.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}.${current.getDate().toString().padStart(2, "0")}`;
+      localStorage.setItem("certif-date", currentTime);
+    }
+  } else {
+    localStorage.removeItem("certif-date");
+  }
+
+  // 화면 표시
+  const $downloadBtn = document.querySelector(".certif-download-btn");
+  if (score >= 100) {
+    $downloadBtn.removeAttribute("disabled");
+  } else {
+    $downloadBtn.setAttribute("disabled", true);
+  }
+}
+
+const $downloadBtn = document.querySelector(".certif-download-btn");
+$downloadBtn.addEventListener("click", () => {
+  createCertifImg(localStorage.getItem("username"));
+});
+checkCertif();
+
+function createCertifImg(username) {
+  console.log("createCertifImg");
+  const img = new Image();
+  img.src = `src/img/certif-background.jpg`; // 이미지 변경 필요
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    const name = username || "-";
+    ctx.font = "400 74px pretendard";
+    ctx.fillStyle = "#3a72ff";
+    ctx.textAlign = "center";
+    ctx.fillText(name, canvas.width / 2, 570);
+
+    const current = new Date();
+    const currentTime = `${current.getFullYear()}.${(current.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}.${current.getDate().toString().padStart(2, "0")}`;
+
+    const date = localStorage.getItem("certif-date") || currentTime;
+
+    ctx.font = "400 36px pretendard";
+    ctx.fillStyle = "black";
+    ctx.fillText(date, 1340, 1000);
+
+    const certif = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    a.href = certif;
+    a.download = `인증서.png`;
+    a.click();
+  };
+}

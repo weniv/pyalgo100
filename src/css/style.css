@@ -1283,3 +1283,32 @@ footer p {
     display: none;
   }
 }
+
+/* 인증서 */
+.certif-modal {
+  border: 1px solid red;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  top: 65px;
+  right: 10px;
+  width: 240px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: var(--ColorDeep);
+}
+
+.certif-progress {
+  width: 100%;
+  border: 1px solid black;
+  padding: 0;
+}
+
+.certif-progress-inner {
+  width: 100%;
+  background-color: white;
+}
