@@ -5,7 +5,6 @@ const elements = {
   nav: document.querySelector(".question-nav"),
   codeMirror: document.querySelector(".CodeMirror"),
   btnMenu: document.querySelector(".hamburger-btn"),
-  icon: document.querySelector(".hamburger-btn img"),
   menuContainer: document.querySelector(".menu-list"),
 };
 
@@ -16,13 +15,6 @@ const state = {
 
 const toggleActiveState = () => {
   state.isActive = !state.isActive;
-  const imgSrc = state.isActive
-    ? "src/img/close.webp"
-    : "src/img/hamburger-btn.webp";
-  const imgAlt = state.isActive ? "메뉴 닫기" : "메뉴 열기";
-
-  elements.icon.src = imgSrc;
-  elements.icon.alt = imgAlt;
 };
 
 const handleCloseQuestions = () => {
@@ -56,10 +48,8 @@ const handleToggleMenu = () => {
   toggleActiveState();
 
   if (state.isActive) {
-    elements.icon.classList.add("close");
     elements.menuContainer.classList.add("active");
   } else {
-    elements.icon.classList.remove("close");
     elements.menuContainer.classList.remove("active");
   }
 
@@ -70,8 +60,6 @@ const handleToggleMenu = () => {
 
 const handleCloseMenu = () => {
   elements.menuContainer.classList.remove("active");
-  elements.icon.classList.remove("close");
-  elements.icon.src = "src/img/hamburger-btn.webp";
   state.isActive = false;
 };
 
@@ -126,9 +114,25 @@ elements.main.addEventListener("click", handleClickOutside);
 
 // 인증서
 const $certifBtn = document.querySelector(".certif-btn");
-$certifBtn.addEventListener("click", () => {
-  checkCertif();
+const $certifModal = document.querySelector(".certif-modal");
+window.addEventListener("click", (e) => {
+  if ($certifBtn.contains(e.target)) {
+    $certifBtn.classList.toggle("active");
+    $certifModal.classList.toggle("active");
+  } else if (e.target === $certifModal.querySelector(".close-btn")) {
+    $certifBtn.classList.remove("active");
+    $certifModal.classList.remove("active");
+  } else if (!$certifModal.contains(e.target)) {
+    $certifBtn.classList.remove("active");
+    $certifModal.classList.remove("active");
+  }
+
+  if ($certifModal.classList.contains("active")) {
+    document.querySelector(".container").classList.remove("menu-on");
+    document.querySelector(".menu-list").classList.remove("active");
+  }
 });
+
 function checkCertif() {
   // 점수 체크
   let score = 0;
@@ -139,14 +143,16 @@ function checkCertif() {
   }
 
   // 진행률 표시
-  const $progress = document.querySelector(".certif-progress");
-  const $progressBar = document.querySelector(".certif-progress-inner");
-  //width가 아닌 transform으로 변경
+  document.querySelector(".solved").innerText = score;
+  const $progressBar = document.querySelector(".solved-progressbar-inner");
   $progressBar.style.transform = `scaleX(${score / 100})`;
   $progressBar.style.transformOrigin = "left";
 
+  const $certifDownloadBtn = document.querySelector(".certif-download-btn");
+  const $labelUsername = document.querySelector(".label-username");
   // 인증서 날짜
   if (score >= 100) {
+    $progressBar.style.backgroundColor = "var(--ColorPrimary)";
     if (!localStorage.getItem("certif-date")) {
       const current = new Date();
       const currentTime = `${current.getFullYear()}.${(current.getMonth() + 1)
@@ -154,8 +160,12 @@ function checkCertif() {
         .padStart(2, "0")}.${current.getDate().toString().padStart(2, "0")}`;
       localStorage.setItem("certif-date", currentTime);
     }
+    $certifDownloadBtn.removeAttribute("disabled");
+    $labelUsername.classList.add("active");
   } else {
     localStorage.removeItem("certif-date");
+    $certifDownloadBtn.setAttribute("disabled", true);
+    $labelUsername.classList.remove("active");
   }
 
   // 화면 표시
@@ -167,13 +177,19 @@ function checkCertif() {
   }
 }
 
+const $inputUsername = document.getElementById("username");
+$inputUsername.addEventListener("input", (e) => {
+  localStorage.setItem("username", e.target.value);
+});
+$inputUsername.value = localStorage.getItem("username") || "";
+
 const $downloadBtn = document.querySelector(".certif-download-btn");
 $downloadBtn.addEventListener("click", () => {
   createCertifImg(localStorage.getItem("username"));
 });
 checkCertif();
 
-function createCertifImg(username) {
+function createCertifImg() {
   console.log("createCertifImg");
   const img = new Image();
   img.src = `src/img/certif-background.jpg`; // 이미지 변경 필요
@@ -184,7 +200,7 @@ function createCertifImg(username) {
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
 
-    const name = username || "-";
+    const name = localStorage.getItem("username") || "-";
     ctx.font = "400 74px pretendard";
     ctx.fillStyle = "#3a72ff";
     ctx.textAlign = "center";
