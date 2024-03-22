@@ -255,8 +255,8 @@ header .menu-list {
 }
 
 .menu-list .menu-title {
+  font-weight: 600;
   font-size: 1.2rem;
-  color: #ffffd9;
   padding: 4px 0 4px 16px;
   margin-bottom: 4px;
 }
