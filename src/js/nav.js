@@ -137,9 +137,10 @@ window.addEventListener("click", (e) => {
 });
 
 function checkCertif() {
+  const totalProblem = 100;
   // 점수 체크
   let score = 0;
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= totalProblem; i++) {
     if (localStorage.getItem(`${i}_check`) === "통과") {
       score++;
     }
@@ -148,13 +149,13 @@ function checkCertif() {
   // 진행률 표시
   document.querySelector(".solved").innerText = score;
   const $progressBar = document.querySelector(".solved-progressbar-inner");
-  $progressBar.style.transform = `scaleX(${score / 100})`;
+  $progressBar.style.transform = `scaleX(${score / totalProblem})`;
   $progressBar.style.transformOrigin = "left";
 
   const $certifDownloadBtn = document.querySelector(".certif-download-btn");
   const $labelUsername = document.querySelector(".label-username");
   // 인증서 날짜
-  if (score >= 100) {
+  if (score >= totalProblem) {
     $progressBar.style.backgroundColor = "var(--ColorPrimary)";
     if (!localStorage.getItem("certif-date")) {
       const current = new Date();
@@ -173,7 +174,7 @@ function checkCertif() {
 
   // 화면 표시
   const $downloadBtn = document.querySelector(".certif-download-btn");
-  if (score >= 100) {
+  if (score >= totalProblem) {
     $downloadBtn.removeAttribute("disabled");
   } else {
     $downloadBtn.setAttribute("disabled", true);
