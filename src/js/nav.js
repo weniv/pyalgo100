@@ -128,8 +128,11 @@ window.addEventListener("click", (e) => {
   }
 
   if ($certifModal.classList.contains("active")) {
+    if(state.isMobile){
     document.querySelector(".container").classList.remove("menu-on");
+    }
     document.querySelector(".menu-list").classList.remove("active");
+    checkCertif();
   }
 });
 
