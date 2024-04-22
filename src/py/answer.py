@@ -482,14 +482,10 @@ def solution(data):
 
 
 # 38
-import re
-
-
-# 38
-import re
 
 
 def solution(data):
+    import re
     pattern = r"(?P<protocol>https?|ftp)://(?P<domain>[^/\s]+)(?P<path>/[^?]*|)(\?(?P<query>[^#\s]*))?"
     match = re.match(pattern, data)
     if match:
