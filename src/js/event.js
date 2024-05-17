@@ -40,6 +40,7 @@ $btnRun.addEventListener("click", (e) => {
   window.localStorage.setItem(PAGE_NAME, text);
   codeEditor.textContent = text;
   $resultInfo.classList.add("result-info-none");
+  checkCertif()
 });
 
 const downloadFile = async ({ data, fileName, fileType }) => {
