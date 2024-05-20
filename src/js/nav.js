@@ -189,6 +189,15 @@ $inputUsername.value = localStorage.getItem("username") || "";
 
 const $downloadBtn = document.querySelector(".certif-download-btn");
 $downloadBtn.addEventListener("click", () => {
+  // disabled 제거 후 인증서 다운로드 방지
+  const totalProblem = 100;
+  let score = 0;
+  for (let i = 1; i <= totalProblem; i++) {
+    if (localStorage.getItem(`${i}_check`) === "통과") {
+      score++;
+    }
+  }
+
   createCertifImg(localStorage.getItem("username"));
 });
 checkCertif();
