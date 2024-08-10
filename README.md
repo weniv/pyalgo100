@@ -1,4 +1,4 @@
-# pythonbest100
+# pyalgo100
 파이썬 알고리즘 100문제
 
 ## pyalgo20과 다른 점
