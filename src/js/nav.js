@@ -137,7 +137,7 @@ window.addEventListener("click", (e) => {
 });
 
 function checkCertif() {
-  const totalProblem = 100;
+  const totalProblem = 104;
   // 점수 체크
   let score = 0;
   for (let i = 1; i <= totalProblem; i++) {
@@ -190,7 +190,7 @@ $inputUsername.value = localStorage.getItem("username") || "";
 const $downloadBtn = document.querySelector(".certif-download-btn");
 $downloadBtn.addEventListener("click", () => {
   // disabled 제거 후 인증서 다운로드 방지
-  const totalProblem = 100;
+  const totalProblem = 104;
   let score = 0;
   for (let i = 1; i <= totalProblem; i++) {
     if (localStorage.getItem(`${i}_check`) === "통과") {

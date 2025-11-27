@@ -1673,4 +1673,53 @@ testcase_and_result = [
         "testcase": ["a3b2c1", "a1b1c3d2e1f1", "x2y3z1", "a1", "z9"],
         "result": ["aaabbc", "abcccddef", "xxyyyz", "a", "zzzzzzzzz"],
     },
+    {
+        "que_number": 101,
+        "lv": 1,
+        "kinds": "해시",
+        "testcase": [
+            [1, 2, 2, 3, 3, 3],
+            [4, 5, 4, 5, 4, 5],
+            [7, 7, 7, 7],
+            [1, 2, 3, 4, 5],
+            [],
+        ],
+        "result": [3, 2, 1, 5, 0],
+    },
+    {
+        "que_number": 102,
+        "lv": 1,
+        "kinds": "해시",
+        "testcase": ["hello", "aabbcc", "programming", "aaa", "abcde"],
+        "result": ["l", "a", "g", "a", "a"],
+    },
+    {
+        "que_number": 103,
+        "lv": 1,
+        "kinds": "해시",
+        "testcase": [
+            [["leo", "kiki", "eden"], ["eden", "kiki"]],
+            [
+                ["marina", "josipa", "nikola", "vinko"],
+                ["josipa", "nikola", "marina"],
+            ],
+            [["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]],
+        ],
+        "result": ["leo", "vinko", "mislav"],
+    },
+    {
+        "que_number": 104,
+        "lv": 2,
+        "kinds": "해시",
+        "testcase": [
+            ["In user1 Licat", "In user2 Mura", "In user1 Mura", "Update user2 Binky"],
+            ["In user1 Alex", "Update user1 Bob", "In user1 Charlie"],
+            ["In user1 A", "In user2 B", "Update user1 C", "In user2 D"],
+        ],
+        "result": [
+            ["Mura님이 착륙하셨어요.", "Binky님이 착륙하셨어요.", "Mura님이 착륙하셨어요."],
+            ["Charlie님이 착륙하셨어요.", "Charlie님이 착륙하셨어요."],
+            ["C님이 착륙하셨어요.", "D님이 착륙하셨어요.", "D님이 착륙하셨어요."],
+        ],
+    },
 ]

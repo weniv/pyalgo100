@@ -1917,7 +1917,7 @@ def solution(data):
 # 100
 def solution(s):
     result = ""
-    
+
     for i in range(len(s)):
         if s[i].isalpha():
             char = s[i]
@@ -1927,5 +1927,56 @@ def solution(s):
                 count += s[j]
                 j += 1
             result += char * int(count)
-    
+
+    return result
+
+
+# 101
+def solution(nums):
+    return len(set(nums))
+
+
+# 102
+def solution(s):
+    from collections import Counter
+
+    counter = Counter(s)
+    max_count = max(counter.values())
+    most_common_chars = [char for char, count in counter.items() if count == max_count]
+    return sorted(most_common_chars)[0]
+
+
+# 103
+def solution(data):
+    participant, completion = data
+    from collections import Counter
+
+    participant_count = Counter(participant)
+    completion_count = Counter(completion)
+
+    for person in participant_count:
+        if participant_count[person] != completion_count[person]:
+            return person
+
+
+# 104
+def solution(logs):
+    user_nick = {}
+    actions = []
+
+    for log in logs:
+        parts = log.split()
+        cmd = parts[0]
+        uid = parts[1]
+
+        if cmd == "In":
+            user_nick[uid] = parts[2]
+            actions.append(uid)
+        elif cmd == "Update":
+            user_nick[uid] = parts[2]
+
+    result = []
+    for uid in actions:
+        result.append(f"{user_nick[uid]}님이 착륙하셨어요.")
+
     return result
